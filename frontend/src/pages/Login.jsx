@@ -5,7 +5,7 @@ const Login = () => {
    
     <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form className="w-full max-w-md">
-            <img className="w-auto h-7 sm:h-8" src="" alt=""/>
+            <img src="logo.png" alt=""  />
 
             <h1 className="mt-3 text-2xl font-semibold  capitalize sm:text-3xl dark:text-black text-white">Iniciar sesion</h1>
 
