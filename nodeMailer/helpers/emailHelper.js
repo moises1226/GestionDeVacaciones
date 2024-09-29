@@ -2,12 +2,12 @@ const nodemailer = require("nodemailer");
 
 const emailHelper = async (to, subject, text) => {
   // Create a transporter
-  const myGmail = "moises.aguilar1.et7@gmail.com";
+  const myGmail = "tu gmail";
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: myGmail,
-      pass: "zypz yqcb wjti oasy",
+      pass: "tu codigo",
     },
   });
 
