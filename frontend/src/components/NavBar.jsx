@@ -9,7 +9,7 @@ const NavBar = () => {
     const activeLink = "black inline-block py-1 text-layout mr-4";
 
       return (
-    <header className="text-black body-font">
+    <header className="text-black body-font font-black">
     <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       
