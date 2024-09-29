@@ -1,15 +1,19 @@
 import React from 'react'
 
+import logo from '../assets/logoPagina.png'
+
 const Login = () => {
   return (
    
-    <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <form className="w-full max-w-md">
-            <img src="logo.png" alt=""  />
+    <div
 
+        
+        className="container flex mt-20 justify-center min-h-screen px-6 mx-auto">
+        <form className="w-full max-w-md">
+            <img src={logo} alt="Logo" className="mx-auto mb-4 w-32 h-auto" />
             <h1 className="mt-3 text-2xl font-semibold  capitalize sm:text-3xl dark:text-black text-white">Iniciar sesion</h1>
 
-            <div className="relative flex items-center mt-8">
+            <div className="relative flex items-center mt-2">
                 <span className="absolute">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
