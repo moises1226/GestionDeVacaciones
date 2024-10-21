@@ -4,4 +4,14 @@
 
 body{
     color: rgb(0, 112, 164);
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
