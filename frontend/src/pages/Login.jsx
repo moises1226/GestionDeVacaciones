@@ -6,12 +6,11 @@ const Login = () => {
   return (
    
     <div
-
         
         className="container flex mt-2 justify-center min-h-screen px-6 mx-auto">
         <form className="w-full max-w-md">
             <img src={logo} alt="Logo" className="mx-auto mb-4 w-32 h-auto" />
-            <h1 className="mt-3 text-2xl font-semibold  capitalize sm:text-3xl dark:text-black text-white">Iniciar sesion</h1>
+            <h1 className="mt-3 text-2xl font-semibold  capitalize sm:text-3xl dark:text-black text-white">Login</h1>
 
             <div className="relative flex items-center mt-2">
                 <span className="absolute">
