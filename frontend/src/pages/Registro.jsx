@@ -11,11 +11,11 @@ const Registro = () => {
             
             <div className="flex items-center justify-center mt-6">
                 <a href="#" className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
-                    Administrador
+                    sign in
                 </a>
 
                 <a href="#" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
-                    Usuario
+                    sign up
                 </a>
             </div>
 

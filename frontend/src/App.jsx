@@ -13,9 +13,10 @@ function App() {
     <>
       <div className="bg-primary min-h-screen">
 
+     
       <NavBar/>
-
       <Layout>
+          
           <Routes>
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/Login" element={<Login/>}></Route>
