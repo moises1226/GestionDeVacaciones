@@ -1,25 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import logo from "../assets/logoPagina.png";
 
 const NavBar = () => {
-  const btn_link = "black inline-block py-1 text-white hover:text-layout cursor-pointer mr-4";
-  const activeLink = "black inline-block py-1 text-layout mr-4";
+  const btn_link = "inline-block py-1 cursor-pointer mr-4"; // Sin color de texto aquí
+  const activeLink = "inline-block py-1 mr-4"; // Sin color de texto aquí
+  const location = useLocation(); 
+  const isHome = location.pathname === "/"; 
 
   return (
-    <header className="text-white body-font font-black bg-transparent absolute w-full z-20">
+    <header className={`body-font font-black w-full ${isHome ? 'absolute z-20' : 'relative'} ${isHome ? 'bg-transparent' : 'bg-white shadow-md'}`}>
       <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <a className="flex title-font font-medium items-center mb-4 md:mb-0">
           <img src={logo} alt="Logo" className="mx-auto mb-4 w-20 h-auto" />
-          <span className="mb-4 text-xl font-semibold text-white">NilCors</span>
+          <span className={`mb-4 text-xl font-semibold ${isHome ? 'text-white' : 'text-black'}`}>NilCors</span>
         </a>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <NavLink to="/" className={({ isActive }) => isActive ? activeLink : btn_link}>Inicio</NavLink>
-          <NavLink to="/calendario" className={({ isActive }) => isActive ? activeLink : btn_link}>Calendario</NavLink>
+          <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Inicio</NavLink>
+          <NavLink to="/calendario" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Calendario</NavLink>
         </nav>
-
-        <NavLink to="/registro" className={({ isActive }) => isActive ? activeLink : btn_link}>Registro</NavLink>
-        <NavLink to="/login" className={({ isActive }) => isActive ? activeLink : btn_link}>Login</NavLink>
+        
+        <NavLink to="/registro" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Registro</NavLink>
+        <NavLink to="/login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink>
       </div>
     </header>
   );

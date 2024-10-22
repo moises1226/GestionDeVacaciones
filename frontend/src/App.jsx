@@ -15,8 +15,7 @@ function App() {
 
      
       <NavBar/>
-      <Layout>
-          
+
           <Routes>
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/Login" element={<Login/>}></Route>
@@ -24,7 +23,7 @@ function App() {
           <Route path="/calendario" element={<Calendario/>}></Route>
           <Route path="/*" element={<Navigate to="/"></Navigate>}></Route>
           </Routes>  
-      </Layout>
+  
       <Footer/>
       </div>
     </>

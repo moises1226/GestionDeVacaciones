@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Layout = (props) => {
   return (
-   <section >
-        {props.children}
-   </section>
-  )
+    <section className="flex-grow"> 
+      {props.children}
+    </section>
+  );
 }
 
-export default Layout
+export default Layout;
