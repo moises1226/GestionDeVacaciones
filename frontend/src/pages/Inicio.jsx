@@ -11,7 +11,7 @@ const Inicio = () => {
         loop 
         muted
       />
-      <div className="relative z-10 flex items-center justify-center h-full bg-black bg-opacity-50">
+      <div className="relative z-10 flex items-center justify-center h-full bg-black bg-opacity-20">
         <h1 className="text-white text-4xl">Bienvenido a NilCors</h1>
       </div>
     </div>
