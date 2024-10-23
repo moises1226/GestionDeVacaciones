@@ -1,0 +1,39 @@
+my-app/
+├── client/                # Carpeta para el cliente React
+│   ├── public/            # Archivos estáticos
+│   ├── src/
+│   │   ├── components/    # Componentes de React
+│   │   ├── pages/         # Páginas de la aplicación
+│   │   ├── services/      # Servicios para llamadas API
+│   │   ├── App.js         # Componente principal
+│   │   └── index.js       # Punto de entrada
+│   └── tailwind.config.js  # Configuración de Tailwind
+└── server/                # Carpeta para el servidor Node.js
+    ├── config/            # Configuración (base de datos, etc.)
+    ├── controllers/       # Controladores para manejar la lógica
+    ├── models/            # Modelos de datos (representaciones de la base de datos)
+    ├── routes/            # Rutas de la API
+    ├── middleware/        # Middleware (ej. autenticación)
+    ├── .env               # Variables de entorno
+    ├── server.js          # Punto de entrada del servidor
+    └── package.json        # Dependencias del servidor
+
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+server/
+├── config/                # Configuración de la base de datos
+│   └── database.js        # Configuración de la conexión
+├── controllers/           # Controladores de la API
+│   └── userController.js  # Lógica de negocio para usuarios
+├── models/                # Modelos de datos
+│   └── User.js            # Modelo de usuario
+├── routes/                # Rutas de la API
+│   └── userRoutes.js      # Rutas para usuarios
+├── middleware/            # Middleware
+│   └── auth.js            # Middleware de autenticación
+├── .env                   # Variables de entorno
+├── server.js              # Punto de entrada del servidor
+└── package.json           # Dependencias del servidor

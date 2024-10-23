@@ -19,6 +19,7 @@ const NavBar = () => {
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Inicio</NavLink>
           <NavLink to="/calendario" className={({ isActive }) => isActive ? activeLink : btn_link}>Calendario</NavLink>
+          <NavLink to="/validacion" className={({ isActive }) => isActive ? activeLink : btn_link}>Validacion</NavLink>
         </nav>
         
         <NavLink to="/registro" className={({ isActive }) => isActive ? activeLink : btn_link}>Registro</NavLink>
