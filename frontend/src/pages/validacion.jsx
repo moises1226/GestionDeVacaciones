@@ -1,6 +1,6 @@
 import React from 'react'
 
-const validacion = () => {
+const Validacion = () => {
   return (
 
 
@@ -8,4 +8,4 @@ const validacion = () => {
   )
 }
 
-export default validacion;
+export default Validacion;
