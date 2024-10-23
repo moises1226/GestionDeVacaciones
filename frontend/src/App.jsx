@@ -16,12 +16,12 @@ function App() {
      
       <NavBar/>
       <Layout>
-
-          <Routes>
+         <Routes>
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/Login" element={<Login/>}></Route>
           <Route path="/Registro" element={<Registro/>}></Route>
           <Route path="/calendario" element={<Calendario/>}></Route>
+          <Route path="/validacion" element={<Calendario/>}></Route>
           <Route path="/*" element={<Navigate to="/"></Navigate>}></Route>
           </Routes>  
       </Layout>
