@@ -3,7 +3,7 @@ import React from 'react'
 const formularioVacaciones = () => {
   return (
     
-    <div></div>
+    <div>formulario</div>
 
   )
 }
