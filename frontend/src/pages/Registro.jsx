@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Registro = () => {
   return (
@@ -65,9 +66,7 @@ const Registro = () => {
                 </button>
 
                 <div className="mt-6 text-center ">
-                    <a href="#" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                        Ya tienes una cuenta? -WazaInsano-
-                    </a>
+                   <NavLink to="/login" className="text-sm text-blue-500 hover:underline dark:text-blue-400">Ya tienes una cuenta? Ingresa</NavLink>
                 </div>
             </div>
         </form>

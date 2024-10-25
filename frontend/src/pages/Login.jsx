@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/logoPagina.png'
+
 
 const Login = () => {
   return (
@@ -39,10 +40,8 @@ const Login = () => {
                 
 
                 <div className="mt-6 text-center ">
-                    <a href="#" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                        ¿Aún no tenés una cuenta? Registrate
-                        </a>
-                    </div>
+                    <NavLink to="/registro" className="text-sm text-blue-500 hover:underline dark:text-blue-400">¿Aún no tenés una cuenta? Registrate</NavLink>
+                </div>
                 </div>
             </form>
         </div>
