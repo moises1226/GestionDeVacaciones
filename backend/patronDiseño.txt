@@ -37,3 +37,28 @@ server/
 ├── .env                   # Variables de entorno
 ├── server.js              # Punto de entrada del servidor
 └── package.json           # Dependencias del servidor
+
+
+--------------------------------------------------------------------------------
+├── config/
+│   └── database.js         # Configuración de la conexión a la base de datos
+├── controllers/
+│   └── userController.js   # Lógica de negocio para usuarios
+├── models/
+│   └── User.js             # Modelo de usuario
+├── routes/
+│   └── userRoutes.js       # Rutas para usuarios
+├── middleware/
+│   ├── auth.js             # Middleware de autenticación
+│   └── validation.js       # Middleware para validaciones
+│   └── cors.js             # Configuración de CORS
+├── services/
+│   └── authService.js      # Servicios de autenticación y manejo de tokens
+├── utils/
+│   ├── logger.js           # Log de eventos
+│   └── errorHandler.js     # Manejo de errores
+├── tests/                  # Pruebas unitarias o de integración
+├── docs/                   # Documentación del API
+├── .env                    # Variables de entorno
+├── server.js               # Punto de entrada del servidor
+└── package.json            # Dependencias del servidor
