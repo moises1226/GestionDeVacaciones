@@ -6,6 +6,7 @@ import Login from "./pages/Login"
 import Registro from "./pages/Registro"
 import Footer from "./components/Footer"
 import Calendario from "./pages/Calendario"
+import Validacion from "./pages/Validacion"
 
 function App() {
 
@@ -20,8 +21,8 @@ function App() {
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/Login" element={<Login/>}></Route>
           <Route path="/Registro" element={<Registro/>}></Route>
-          <Route path="/calendario" element={<Calendario/>}></Route>
-          <Route path="/validacion" element={<Validacion/>}></Route>
+          <Route path="/Calendario" element={<Calendario/>}></Route>
+          <Route path="/Validacion" element={<Validacion/>}></Route>
           <Route path="/*" element={<Navigate to="/"></Navigate>}></Route>
           </Routes>  
       </Layout>

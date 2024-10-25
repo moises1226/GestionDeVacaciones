@@ -4,7 +4,7 @@ const Validacion = () => {
   return (
 
 
-    <div>validacion</div>
+    <div><h1>REALIZAS LA TABLA!</h1></div>
   )
 }
 

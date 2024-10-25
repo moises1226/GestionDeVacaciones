@@ -52,7 +52,7 @@ const Calendario = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 mb-16 mt-10">
       <div className="flex justify-between items-center mb-4">
         <button onClick={() => cambiarMes(-1)} className="text-black-700"><FaArrowAltCircleLeft /> </button>
         <h2 className="text-xl capitalize">
