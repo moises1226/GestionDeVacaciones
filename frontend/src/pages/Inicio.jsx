@@ -4,7 +4,7 @@ import fondoImg from '../assets/fondoInicioIMG.jpg'; // Asegúrate de que el nom
 
 const Inicio = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="container flex w-full h-screen overflow-hidden">
       {/* <video 
         className="absolute inset-0 object-cover w-full h-full" 
         src={fondoVideo} 
@@ -15,7 +15,7 @@ const Inicio = () => {
 
       <img src={fondoImg} alt="Fondo" className="absolute inset-0 object-cover w-full h-full" />
 
-      <div className="relative z-10 flex items-center justify-center h-full ">
+      <div className="container flex z-10 flex items-center justify-center h-full ">
         <h1 className="text-white text-4xl">Bienvenido a NilCors</h1>
       </div>
     </div>

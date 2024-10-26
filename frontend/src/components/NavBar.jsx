@@ -17,8 +17,9 @@ const NavBar = () => {
           <span className={`mb-4 text-xl font-semibold ${isHome ? 'text-white' : 'text-black'}`}>NilCors</span>
 
         </a>
-        <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'} ml-20`}>Inicio</NavLink>
+       
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'} ml-20`}>Inicio</NavLink>
           <NavLink to="/calendario" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Calendario</NavLink>
           <NavLink to="/formularioVacaciones" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Formulario Vacaciones</NavLink>
           <NavLink to="/validacion" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Validacion</NavLink>
