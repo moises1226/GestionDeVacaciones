@@ -2,12 +2,12 @@ import React from 'react';
 
 const Validacion = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row h-screen p-3 bg-gray-100">
+    <div className="w-full flex flex-col md:flex-row h-screen pt-10 pb-20 px-2   bg-gray-100">
 
       <div className="w-full md:w-3/4 pt-4 pl-4 pb-4 flex flex-col">
-        {/* Contenedor para la tabla */}
+        
         <div className="flex-grow bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
-          {/* Encabezados de la tabla */}
+       
         
             <table className="w-full border border-gray-300">
               <thead>
@@ -34,30 +34,6 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
-                <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
-                </tr>
-                <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
 
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -66,16 +42,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -84,10 +54,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -96,16 +66,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -114,10 +78,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -126,16 +90,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -144,10 +102,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -156,16 +114,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -174,10 +126,10 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
@@ -186,29 +138,12 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                          <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
-                <tr>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
                 </tr>
-                <tr>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
-                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
-                </tr>
+     
               </tbody>
             </table>
           </div>
