@@ -13,7 +13,7 @@ const Registro = () => {
     };
 
     return (
-        <div className="container flex mt-16 justify-center  min-h-screen px-6 ">
+        <div className="container flex mt-16 justify-center ml-14 min-h-screen px-6 ">
             <form className="w-full max-w-md">
                 <div className="flex items-center justify-center mt-6 relative">
                     <div/>

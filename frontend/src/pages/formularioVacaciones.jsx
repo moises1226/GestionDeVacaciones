@@ -7,7 +7,7 @@ const formularioVacaciones = () => {
     
 
     
-    <div className="container flex mt-16 justify-center min-h-screen px-6 mx-auto">
+    <div className="container flex mt-5 pl-14 justify-center min-h-screen px-6 mx-auto">
         <form className="w-full max-w-md">
             <div className="flex justify-center mx-auto">
                 <img className="w-auto h-7 sm:h-8" src="" alt=""/>
