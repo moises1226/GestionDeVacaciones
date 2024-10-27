@@ -22,7 +22,7 @@ const Validacion = () => {
         
 
           {/* Cuerpo de la tabla con scroll */}
-          <div className="overflow-y-auto max-h-[calc(100vh-200px)]"> {/* Ajusta la altura máxima según sea necesario */}
+          <div className="overflow-y-overlay max-h-[calc(100vh-200px)] custom-scroll "> {/* Ajusta la altura máxima según sea necesario */}
             <table className="w-full border border-gray-300">
               <tbody>
                 {/* Registros de ejemplo */}
