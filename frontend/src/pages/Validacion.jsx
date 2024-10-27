@@ -58,7 +58,157 @@ const Validacion = () => {
                   <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
                   <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
                 </tr>
-          
+
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                          <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                          <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                          <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                          <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                          <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">2</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">María Gómez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">maria.gomez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">No Validado</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/12">1</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">Juan Pérez</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center border-r border-gray-300 w-1/3">juan.perez@example.com</td>
+                  <td className="py-2 px-4 border-b border-gray-300 text-center w-1/3">Validado</td>
+                </tr>
               </tbody>
             </table>
           </div>
