@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import ruta from "../src/ruta/rutasUsuario.js"
+import ruta from "./rutas/rutasUsuario.js"
 
 
 const app = express();
