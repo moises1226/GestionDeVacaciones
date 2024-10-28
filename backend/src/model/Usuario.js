@@ -6,7 +6,7 @@ const Usuario = sq.define('Usuario' , {
     nombre : { 
         
         type : DataTypes.STRING,
-        allowNull : false,
+        allowNull : true,
     
     },
 
@@ -23,7 +23,7 @@ const Usuario = sq.define('Usuario' , {
     }},{
         tableName : "Usuario",
         timestamps : false
-    });
+    });5
 
 
     export default Usuario;
