@@ -17,12 +17,13 @@ const Usuario = sq.define('Usuario' , {
 
     },  
 
-    constrasenia : {
+    contrasenia : {
         type : DataTypes.STRING,
         allowNull : true
-    }
+    }},{
+        tableName : "Usuario",
+        timestamps : false
+    });
 
 
-})
-
-export default Usuario;
+    export default Usuario;
