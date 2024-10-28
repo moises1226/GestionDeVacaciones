@@ -7,3 +7,5 @@ const esquemaUsuario = z.object({
     contrasenia  : z.string().min(8 , "Necesita ingresar por lo menos 8 caracteres")
 
 })
+
+export default esquemaUsuario;

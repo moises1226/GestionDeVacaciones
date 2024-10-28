@@ -1,11 +1,11 @@
-import sq from "../config/conexion-db"
+import sq from "../config/conexion-db.js"
 import { DataTypes } from "sequelize"
 
 const Usuario = sq.define('Usuario' , {
 
     nombre : { 
         
-        types : DataTypes.STRING,
+        type : DataTypes.STRING,
         allowNull : false,
     
     },
