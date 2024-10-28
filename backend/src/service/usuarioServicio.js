@@ -12,3 +12,9 @@ export const crearUsuarioService = async (u) => {
 
 }
 
+
+export const eliminarUsuario = async (id) => {
+    
+    
+}
+
