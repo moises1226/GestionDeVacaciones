@@ -15,10 +15,9 @@ CREATE TABLE Formulario (
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     dni VARCHAR(15) NOT NULL UNIQUE,
-    email VARCHAR(50) NOT NULL UNIQUE,
+    gmail VARCHAR(50) NOT NULL UNIQUE,
     fecha_inicio DATE NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
-    CHECK (DAYOFWEEK(fecha_inicio) IN (1, 2))
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) 
 );
 
 CREATE TABLE Administrador (

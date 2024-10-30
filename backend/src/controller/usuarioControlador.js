@@ -22,3 +22,11 @@ export const crearUsuario = async (req , res ) => {
     }
 
 }
+
+export const eliminarUsuario = async (req  ,req ) => {
+
+
+    
+
+
+}
