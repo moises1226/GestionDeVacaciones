@@ -1,7 +1,8 @@
 import usuario from "../model/Usuario.js";
 import validacionUs from "../model/validation/validacionUsuario.js"
 
-export const crearUsuarioService = async (u) => {
+export const crearUsuarioServicio = async (u) => {
+
 
     const veficacionUsuario = validacionUs.parse(u);
 
@@ -13,10 +14,20 @@ export const crearUsuarioService = async (u) => {
 }
 
 
-export const eliminarUsuario = async (id) => {
+export const eliminarUsuarioServicio = async (id) => {
+    
+    const usuarioEliminado = await usuario.findOne({
+        where: { id: id }
+    });
 
+    if (!usuarioEliminado) {
+        return null;
+    }
+    await usuario.destroy({
+        where: { id: id }
+    });
 
-    const veficacionUsuario = validacionUs.parse(u);
+    return usuarioEliminado.id;
     
     
 }
