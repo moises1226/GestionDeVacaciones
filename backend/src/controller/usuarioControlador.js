@@ -1,5 +1,33 @@
-import { crearUsuarioServicio , eliminarUsuarioServicio} from "../service/usuarioServicio.js"
+import {mostrarUsuarioService ,  crearUsuarioServicio , eliminarUsuarioServicio} from "../service/usuarioServicio.js"
 import {z} from "zod";
+
+
+
+export const mostrarUsuarioController = async (req , res) => {
+
+    try {
+
+        const usuarios = await mostrarUsuarioController();
+        if(usuarios.lenth === 0){
+
+          return  res.status(404).json({message :  'No hay registros en la tabla usuarios' });
+
+        }
+
+        return res.status(200).json(usuarios);
+
+   
+   
+     } catch (error) {
+
+        console.error('Error al obtener los usuario' , error);
+        return res.status(500).json({error : 'Error al obtener los registros'})
+        
+    }
+
+}
+
+
 
 export const crearUsuarioController = async (req , res ) => {
 
@@ -26,7 +54,7 @@ export const eliminarUsuarioController = async (req  ,res ) => {
         try {
 
             const {id} = req.params;
-            const idUsuario_eliminado = eliminarUsuarioServicio(id);
+            const idUsuario_eliminado = await eliminarUsuarioServicio(id);
 
             if (!idUsuario_eliminado) {
                 console.error("El ID de usuario ingresado no existe");

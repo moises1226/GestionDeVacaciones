@@ -1,6 +1,17 @@
 import usuario from "../model/Usuario.js";
 import validacionUs from "../model/validation/validacionUsuario.js"
 
+
+
+export const mostrarUsuarioService = async () => {
+
+    const mostrarUsuario = await usuario.findAll();
+    return mostrarUsuario;
+
+}
+
+
+
 export const crearUsuarioServicio = async (u) => {
 
 
