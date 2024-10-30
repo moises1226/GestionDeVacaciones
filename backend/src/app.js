@@ -1,20 +1,20 @@
 import express from 'express';
-const app = express();
 import morgan from 'morgan';
-import routes from './routes/index.js'
+import ruta from "./rutas/rutasUsuario.js";
 
-//congifuracion
-app.set('port' , process.env.PORT || 3000);
+const app = express();
+
+// Configuración
+app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
+// Middlewares
+app.use(express.json()); // Agrega este middleware para procesar JSON
+app.use(morgan('dev')); // Si deseas tener logs de las solicitudes
 
-//middlewares
-
-//routes
-app.use(routes) ;
-
+// Rutas
+app.use('/api', ruta); // Asegúrate de que tus rutas estén prefijadas correctamente
 
 app.listen(app.get('port'), () => {
-    console.log(`El sevidor funciona en el puerto ${app.get('port')}`);
+    console.log(`El servidor funciona en el puerto ${app.get('port')}`);
 });
-

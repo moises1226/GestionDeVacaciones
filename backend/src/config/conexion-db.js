@@ -1,19 +1,21 @@
-import mysql from 'mysql2/promise';
+import {Sequelize} from 'sequelize';
 
-async function connect() {
-    try {
-      const connection = await mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'gestionVacaciones',
-      });
-      console.log('La conexion a mysql fue establecida');
-      return connection;
-    } catch (error) {
-      console.error('fallo la conexion a la base de datos', error);
-      throw error;
-    }
-  }
+import config  from './config.js';
   
-  export default connect;
+const sq = new Sequelize (
+
+    config.local.database,
+    config.local.username,
+    config.local.password,
+
+    {
+
+      host : config.local.host,
+      dialect : "mysql"
+
+    }
+
+)
+
+  
+  export default sq;

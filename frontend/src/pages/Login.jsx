@@ -8,7 +8,7 @@ const Login = () => {
    
     <div
         
-        className="container flex mt-20 justify-center min-h-screen px-6 mx-auto">
+        className="container flex mt-20 justify-center min-h-screen px-6 ml-6">
         <form className="w-full max-w-md">
             <img src={logo} alt="Logo" className="mx-auto mb-4 w-32 h-auto" />
             <h1 className="mt-3 text-2xl font-semibold  capitalize sm:text-3xl dark:text-black text-white">Login</h1>
