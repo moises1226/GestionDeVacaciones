@@ -19,6 +19,10 @@ export const crearUsuarioServicio = async (u) => {
 
     const _user = await usuario.create(veficacionUsuario);
 
+    
+    
+    
+
     return _user;
 
 

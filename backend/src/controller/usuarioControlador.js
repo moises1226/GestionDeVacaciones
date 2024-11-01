@@ -32,6 +32,8 @@ export const crearUsuarioController = async (req , res ) => {
     try{
 
         const nuevoUsuario = await crearUsuarioServicio(req.body);
+
+        
         return res.status(201).json(nuevoUsuario);
 
     }catch (error){
