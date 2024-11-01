@@ -1,12 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
 import ruta from "./rutas/rutasUsuario.js";
-
+import cors from "cors";
 const app = express();
 
 // Configuración
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
+
 
 // Middlewares
 app.use(express.json()); // Agrega este middleware para procesar JSON
