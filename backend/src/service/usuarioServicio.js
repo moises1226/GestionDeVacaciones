@@ -18,7 +18,7 @@ export const crearUsuarioServicio = async (u) => {
 
     const verificacionUsuario = validacionUs.parse(u);
 
-    const gmailExistente = await usuario.findOne({where  : {gmail : verificacionUsuario.gmail} });
+    const gmailExistente = await usuario.findOne({ where  : {gmail : verificacionUsuario.gmail} });
 
     
     if(gmailExistente){
