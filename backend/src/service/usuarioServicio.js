@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import usuario from "../model/Usuario.js";
 import validacionUs from "../model/validation/validacionUsuario.js"
 
@@ -15,13 +16,16 @@ export const mostrarUsuarioService = async () => {
 export const crearUsuarioServicio = async (u) => {
 
 
-    const veficacionUsuario = validacionUs.parse(u);
+    const verificacionUsuario = validacionUs.parse(u);
 
-    const _user = await usuario.create(veficacionUsuario);
+    const gmailExistente = await usuario.findOne({where  : {gmail : verificacionUsuario.gmail} });
 
     
-    
-    
+    if(gmailExistente){
+        throw new Error("El correo que ingreso ya esta registrado")
+    }
+
+    const _user = await usuario.create(verificacionUsuario);
 
     return _user;
 
