@@ -1,5 +1,5 @@
 import React from 'react';
-import fondoVideo from '../assets/fondoInicio.mp4';
+
 import fondoImg from '../assets/fondoInicioIMG.jpg'; // Asegúrate de que el nombre y extensión sean correctos
 
 const Inicio = () => {
