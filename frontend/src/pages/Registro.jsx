@@ -94,7 +94,7 @@ const Registro = () => {
     };
 
     return (
-        <div className=" flex m-24 ml-16 justify-center al ">
+        <div className=" flex mt-20 justify-center min-h-screen px-6 ml-6">
             <form className="w-full max-w-md">
                 <div className="flex items-center justify-center mt-6 relative">
                     <a href="#" onClick={handleAdminClick} className={`w-1/3 pb-4 font-medium text-center capitalize border-b ${showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>
