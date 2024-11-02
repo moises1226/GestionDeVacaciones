@@ -8,7 +8,7 @@ export const mostrarUsuarioController = async (req , res) => {
     try {
 
         const usuarios = await mostrarUsuarioService();
-        if(usuarios.lenth === 0){
+        if(usuarios.length === 0){
 
           return  res.status(404).json({message :'No hay registros en la tabla usuarios'});
 

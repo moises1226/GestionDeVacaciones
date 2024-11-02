@@ -10,14 +10,14 @@ const Registro = () => {
     // Estado para datos del usuario y del administrador, sin confirmarPassword
     const [adminData, setAdminData] = useState({
         nombre: '',
-        email: '',
-        password: ''
+        gmail: '',
+        contrasenia: ''
     });
 
     const [userData, setUserData] = useState({
         nombre: '',
-        email: '',
-        password: ''
+        gmail: '',
+        contrasenia: ''
     });
 
     // Estado temporal para confirmar contraseña en el formulario, solo en frontend
@@ -48,7 +48,7 @@ const Registro = () => {
     // Envío del formulario de usuario
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (userData.password !== userData.confirmarPassword) {
+        if (userData.contrasenia !== userData.confirmarPassword) {
             alert("Las contraseñas no coinciden");
             return;
         }
@@ -57,8 +57,8 @@ const Registro = () => {
         try {
             const nuevoUsuario = {
                 nombre: userData.nombre,
-                email: userData.email,
-                password: userData.password,
+                gmail: userData.gmail,
+                contrasenia: userData.contrasenia,
                 // antiguedad: userData.antiguedad // Asegúrate de incluir cualquier otro dato necesario
             };
             
@@ -67,8 +67,8 @@ const Registro = () => {
             
             setUserData({
                 nombre: '',
-                email: '',
-                password: '',
+                gmail: '',
+                contrasenia: '',
                 confirmarPassword: '', // Reiniciar este campo también
                 antiguedad: '' // Reiniciar este campo si es necesario
             });
@@ -143,8 +143,8 @@ const Registro = () => {
 
                             <input 
                                 type="email" 
-                                name="email" 
-                                value={adminData.email} 
+                                name="gmail" 
+                                value={adminData.gmail} 
                                 onChange={handleAdminChange}
                                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                                 placeholder="Ingresar Gmail"
@@ -161,8 +161,8 @@ const Registro = () => {
 
                             <input 
                                 type={showPassword ? 'text' : 'password'} 
-                                name="password" 
-                                value={adminData.password} 
+                                name="contrasenia" 
+                                value={adminData.contrasenia} 
                                 onChange={handleAdminChange}
                                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                                 placeholder="Contraseña"/*cambio entre tipo texto y contraseña*/
@@ -254,8 +254,8 @@ const Registro = () => {
                             </span>
                             <input 
                                 type="email" 
-                                name="email" 
-                                value={userData.email} 
+                                name="gmail" 
+                                value={userData.gmail} 
                                 onChange={handleUserChange}
                                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                                 placeholder="Ingresar Gmail"
@@ -270,8 +270,8 @@ const Registro = () => {
                             </span>
                             <input 
                                 type={showPassword ? 'text' : 'password'} 
-                                name="password" 
-                                value={userData.password} 
+                                name="contrasenia" 
+                                value={userData.contrasenia} 
                                 onChange={handleUserChange}
                                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                                 placeholder="Contraseña"

@@ -22,7 +22,7 @@ export const crearUsuario = async (nuevoUsuario) => {
 
     try {
         
-        const captador = await api.post('/crearUsuarios' , nuevoUsuario );
+        const captador = await api.post('/crearUsuario' , nuevoUsuario );
         return captador.data;
 
     } catch (error) {
