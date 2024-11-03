@@ -101,14 +101,14 @@ const Registro = () => {
 
 
     return (
-        <div className=" flex mt-20 justify-center min-h-screen px-6 ml-6">
+        <div className=" flex justify-center  p-20 ml-6">
             <form className="w-full max-w-md" onSubmit={handleSubmit}>
                 <div className="flex items-center justify-center mt-6 relative">
-                    <a href="#" onClick={handleAdminClick} className={`w-1/3 pb-4 font-medium text-center capitalize border-b ${showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>
+                    <a  onClick={handleAdminClick} className={` cursor-pointer w-1/3 pb-4 font-medium text-center  border-b ${showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>
                     Administrador
                     </a>
 
-                    <a href="#" onClick={handleUserClick} className={`w-1/3 pb-4 font-medium text-center capitalize border-b ${!showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>
+                    <a onClick={handleUserClick} className={` cursor-pointer w-1/3 pb-4 font-medium text-center  border-b ${!showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>
                     Usuario
                     </a>
                 </div>

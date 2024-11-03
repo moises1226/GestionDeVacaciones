@@ -7,16 +7,13 @@ const formularioVacaciones = () => {
     
 
     
-    <div className=" flex mt-20 justify-center min-h-screen px-6 ml-6">
+    <div className=" flex  justify-center  p-20 ml-6">
         <form className="w-full max-w-md">
-            <div className="flex justify-center mx-auto">
-                <img className="w-auto h-7 sm:h-8" src="" alt=""/>
-            </div>
-            
-            <div className="flex items-center justify-center mt-6">
-                <a href="#" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
+        
+            <div className="flex items-center justify-center ">
+                <h2  className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
                     Formulario
-                </a>
+                </h2>
             </div>
 
             <div className="relative flex items-center mt-8">
