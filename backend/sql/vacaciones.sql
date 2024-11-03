@@ -11,29 +11,20 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Formulario (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     dni VARCHAR(15) NOT NULL UNIQUE,
-<<<<<<< HEAD
-    gmail VARCHAR(50) NOT NULL UNIQUE,
-=======
     gmail VARCHAR(100) NOT NULL UNIQUE,
->>>>>>> ead13db6205b5d542a3f2e9e66b762962f44175e
     fecha_inicio DATE NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES Usuario(id) 
 );
 
 CREATE TABLE Administrador (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-<<<<<<< HEAD
-    gmail VARCHAR(50) NOT NULL UNIQUE,
-    contrasenia VARCHAR(50) NOT NULL
-=======
+    nombre VARCHAR(50) NOT NULL
     gmail VARCHAR(100) NOT NULL UNIQUE,
     contraseña VARCHAR(50) NOT NULL
->>>>>>> ead13db6205b5d542a3f2e9e66b762962f44175e
+
 );
 
 DELIMITER //
