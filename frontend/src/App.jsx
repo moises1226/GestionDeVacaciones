@@ -10,28 +10,25 @@ import Validacion from "./pages/Validacion"
 import FormularioVacaciones from "./pages/formularioVacaciones"
 
 function App() {
-
   return (
     <>
-      <div className="bg-primary min-h-screen">
-
-     
-      <NavBar/>
-      <Layout>
-         <Routes>
-          <Route path="/" element={<Inicio/>}></Route>
-          <Route path="/Login" element={<Login/>}></Route>
-          <Route path="/Registro" element={<Registro/>}></Route>
-          <Route path="/Calendario" element={<Calendario/>}></Route>
-          <Route path="/formularioVacaciones" element={<FormularioVacaciones/>}></Route>
-          <Route path="/Validacion" element={<Validacion/>}></Route>
-          <Route path="/*" element={<Navigate to="/"></Navigate>}></Route>
-          </Routes>  
-      </Layout>
-      <Footer/>
+      <div className="bg-primary min-h-screen flex flex-col">
+        <NavBar />
+        <Layout className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Registro" element={<Registro />} />
+            <Route path="/Calendario" element={<Calendario />} />
+            <Route path="/formularioVacaciones" element={<FormularioVacaciones />} />
+            <Route path="/Validacion" element={<Validacion />} />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </Routes>
+        </Layout>
+        <Footer className=""/>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
