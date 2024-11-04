@@ -4,12 +4,13 @@ const esquemaFormulario = z.object({
 
     nombre : z.string().min(1 , "Debe ingresar el nombre"),
     apellido : z.string().min(1 , "Debe ingresar el apellido"),
-    dni : z.int().min(8 , "debe tener 8 caracteres"),
+    dni : z.number().int().min(10000000, "debe tener 8 caracteres"),
     gmail : z.string().min(1 , "Necesita ingresar el gmail"),
-    fecha_ingreso: z.date({
-        required_error: "Debe ingresar una fecha de ingreso válida",
-        invalid_type_error: "La fecha debe ser un objeto Date"
+    fecha_inicio: z.string()
+    .refine((val) => !isNaN(Date.parse(val)), {
+        message: "La fecha debe ser una cadena válida en formato YYYY-MM-DD"
     })
+    .transform((val) => new Date(val)) 
 });
 
 export default esquemaFormulario;

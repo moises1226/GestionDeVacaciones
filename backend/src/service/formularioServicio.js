@@ -25,9 +25,9 @@ export const crearFormularioServicio = async (f) => {
         throw new Error("El correo que ingreso ya esta registrado")
     }
 
-    const formulario = await formulario.create(verificacionRegistros);
+    const nuevoFormulario = await formulario.create(verificacionRegistros);
 
-    return formulario;
+    return nuevoFormulario;
 
 
 }

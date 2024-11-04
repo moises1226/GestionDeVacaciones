@@ -14,7 +14,7 @@ export const mostrarFormularioController = async (req , res) => {
 
         }
 
-        return res.status(200).json(usuarios);
+        return res.status(200).json(formulario);
    
      } catch (error) {
 
