@@ -15,7 +15,6 @@ export const mostrarFormularioService = async () => {
 
 export const crearFormularioServicio = async (f) => {
 
-
     const verificacionRegistros = validacionFormulario.parse(f);
 
     const gmailExistente = await formulario.findOne({ where  : {gmail : verificacionRegistros.gmail} });
