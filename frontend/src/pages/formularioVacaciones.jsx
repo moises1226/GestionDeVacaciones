@@ -1,6 +1,5 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom';
-
+import { crearFormulario } from '../service/formularioServicio.js';
 
 const formularioVacaciones = () => {
   return (
@@ -23,7 +22,10 @@ const formularioVacaciones = () => {
                     </svg>
                 </span>
 
-                <input type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Nombre Completo"/>
+                <input 
+                    type="text" 
+                    className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
+                    placeholder="Nombre Completo"/>
             </div>
             <div className="relative flex items-center mt-8">
                 <span className="absolute">
@@ -32,7 +34,10 @@ const formularioVacaciones = () => {
                     </svg>
                 </span>
 
-                <input type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Apellido Completo"/>
+                <input 
+                    type="text" 
+                    className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
+                    placeholder="Apellido Completo"/>
 
             </div>
             <div class="relative flex items-center mt-6">
@@ -57,7 +62,10 @@ const formularioVacaciones = () => {
                     </svg>
                 </span>
 
-                <input type="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Ingresar Gmail"/>
+                <input 
+                    type="email" 
+                    className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
+                    placeholder="Ingresar Gmail"/>
             </div>
             
 
@@ -68,7 +76,10 @@ const formularioVacaciones = () => {
         </svg>
     </span>
 
-    <input type="date" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Fecha de inicio"/>
+    <input 
+        type="date" 
+        className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
+        placeholder="Fecha de inicio"/>
 </div>
             <div className="mt-6">
                 <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
