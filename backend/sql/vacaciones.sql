@@ -3,7 +3,7 @@ USE vacaciones;
 
 CREATE TABLE Usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50),
+    nombre VARCHAR(50) not null,
     gmail VARCHAR(100) NOT NULL UNIQUE,
     contrasenia VARCHAR(255) NOT NULL
     -- antiguedad VARCHAR(50) NOT NULL
