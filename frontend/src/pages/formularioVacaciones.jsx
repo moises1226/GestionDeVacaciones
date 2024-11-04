@@ -1,31 +1,65 @@
 import React, { useState } from 'react';
 import { crearFormulario } from '../service/formularioServicio.js';
 
-const formularioVacaciones = () => {
+const FormularioVacaciones = () => {
+  // Estado para almacenar los datos del formulario
+  const [DatosFormulario, setDatosFormulario] = useState({
+    nombre: '',
+    apellido: '',
+    dni: '',
+    gmail: '',
+    fecha_inicio: '',
+  });
 
+  
+  const [error, setError] = useState('');
+
+  // Envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const formulario = {
-      nombre: e.target.nombre.value,
-      apellido: e.target.apellido.value,
-      dni: e.target.dni.value,
-      email: e.target.email.value,
-      fechaInicio: e.target.fechaInicio.value,
-    };
-    
+
+    // Validación para asegurar que todos los campos requeridos están completos
+    if (!DatosFormulario.nombre || !DatosFormulario.apellido || !DatosFormulario.gmail || !DatosFormulario.fecha_inicio) {
+      alert("Por favor, complete todos los campos requeridos.");
+      return;
+    } 
+
+
     try {
-      await crearFormulario(formulario);
+      await crearFormulario(DatosFormulario);
       alert('Formulario enviado con éxito');
+
+      // Reiniciar el formulario
+      setDatosFormulario({
+        nombre: '',
+        apellido: '',
+        dni: '',
+        gmail: '',
+        fecha_inicio: '',
+      });
     } catch (error) {
-      console.error('Error al enviar formulario:', error);
-    }
+      console.error('Error al enviar el formulario:', error);
+      setError('Error al enviar el formulario. Intente nuevamente.');
+    } 
+  };
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Si el campo es "dni", convertimos el valor a un número entero
+    const newValue = name === "dni" ? parseInt(value, 10) : value;
+
+    setDatosFormulario((prev) => ({
+      ...prev,
+      [name]: newValue,
+    }));
   };
 
   return (
+
     <div className="flex justify-center p-20 ml-6">
       <form onSubmit={handleSubmit} className="w-full max-w-md">
-        
         <div className="flex items-center justify-center">
           <h2 className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
             Formulario
@@ -41,6 +75,8 @@ const formularioVacaciones = () => {
           <input 
             type="text" 
             name="nombre" 
+            value={DatosFormulario.nombre} // Conectar con el estado
+            onChange={handleChange} // Manejar cambios
             className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
             placeholder="Nombre Completo"
           />
@@ -55,6 +91,8 @@ const formularioVacaciones = () => {
           <input 
             type="text" 
             name="apellido" 
+            value={DatosFormulario.apellido} // Conectar con el estado
+            onChange={handleChange} // Manejar cambios
             className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
             placeholder="Apellido Completo"
           />
@@ -67,8 +105,10 @@ const formularioVacaciones = () => {
             </svg>
           </span>
           <input 
-            type="number" 
+            type="text" 
             name="dni" 
+            value={DatosFormulario.dni} // Conectar con el estado
+            onChange={handleChange} // Manejar cambios
             className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
             placeholder="Ingrese su D.N.I"
           />
@@ -82,7 +122,9 @@ const formularioVacaciones = () => {
           </span>
           <input 
             type="email" 
-            name="email" 
+            name="gmail" 
+            value={DatosFormulario.gmail} // Conectar con el estado
+            onChange={handleChange} // Manejar cambios
             className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
             placeholder="Ingresar Gmail"
           />
@@ -96,24 +138,26 @@ const formularioVacaciones = () => {
           </span>
           <input 
             type="date" 
-            name="fechaInicio" 
+            name="fecha_inicio" 
+            value={DatosFormulario.fecha_inicio} // Conectar con el estado
+            onChange={handleChange} // Manejar cambios
             className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
-            placeholder="Fecha de inicio"
+            placeholder="Fecha de Inicio"
           />
         </div>
 
-        <div className="mt-6">
-          <button 
-            type="submit" 
-            className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
-          >
-            Enviar
-          </button>
-        </div>
-
+        {error && <div className="text-red-500">{error}</div>} {/* Mensaje de error */}
+        
+        <button 
+          type="submit" 
+          className={`w-full py-3 mt-6 font-semibold text-white bg-blue-500 rounded-lg `}
+         
+        >
+          Enviar
+        </button>
       </form>
     </div>
   );
-}
+};
 
-export default formularioVacaciones;
+export default FormularioVacaciones;
