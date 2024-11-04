@@ -11,7 +11,7 @@ const Validacion = () => {
     ];
   
     return (
-      <div className="overflow-x-auto p-4">
+      <div className="max-w-4xl overflow-x-auto p-10">
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-100">
