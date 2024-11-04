@@ -69,8 +69,8 @@ const Registro = () => {
                 nombre: '',
                 gmail: '',
                 contrasenia: '',
-                confirmarPassword: '', // Reiniciar este campo también
-                antiguedad: '' // Reiniciar este campo si es necesario
+                confirmarPassword: '', 
+                antiguedad: ''
             });
         } catch (error) {
             console.error('Error al crear el usuario:', error);
@@ -101,7 +101,7 @@ const Registro = () => {
 
 
     return (
-        <div className=" flex justify-center  p-20 ml-6">
+        <div className=" flex justify-center  p-14 ml-6">
             <form className="w-full max-w-md" onSubmit={handleSubmit}>
                 <div className="flex items-center justify-center mt-6 relative">
                     <a  onClick={handleAdminClick} className={` cursor-pointer w-1/3 pb-4 font-medium text-center  border-b ${showAdminLogin ? "text-gray-800 border-blue-500" : "text-gray-500"}`}>

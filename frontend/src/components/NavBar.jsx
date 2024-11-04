@@ -26,7 +26,7 @@ const NavBar = () => {
         </nav>
         
         <NavLink to="/registro" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Registro</NavLink>
-        <NavLink to="/login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink>
+        <NavLink to="/Login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink>
       </div>
     </header>
   );

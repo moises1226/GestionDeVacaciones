@@ -48,7 +48,8 @@ const FormularioVacaciones = () => {
     const { name, value } = e.target;
 
     // Si el campo es "dni", convertimos el valor a un número entero
-    const newValue = name === "dni" ? parseInt(value, 10) : value;
+    const newValue = name === "dni" ? (isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)) : value;
+
 
     setDatosFormulario((prev) => ({
       ...prev,
