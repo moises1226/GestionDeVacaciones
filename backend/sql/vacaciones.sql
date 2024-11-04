@@ -13,7 +13,7 @@ CREATE TABLE Formulario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    dni VARCHAR(15) NOT NULL UNIQUE,
+    dni INT NOT NULL UNIQUE,
     gmail VARCHAR(100) NOT NULL UNIQUE,
     fecha_inicio DATE NOT NULL
 
