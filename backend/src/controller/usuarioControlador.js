@@ -32,13 +32,18 @@ export const crearUsuarioController = async (req , res ) => {
     try{
 
         const nuevoUsuario = await crearUsuarioServicio(req.body);
+
+        
         return res.status(201).json(nuevoUsuario);
 
     }catch (error){
 
         if(error instanceof z.ZodError){
           return res.status(400).json({errors : error.errors});
+         }else if (error.message === 'Este correo ya está registrado') {
+            return res.status(400).json({ error: error.message });
          }
+
 
         console.error("error al crear el usuario" , error);
         return res.status(500).json({error : 'Error al crear el usuario'});

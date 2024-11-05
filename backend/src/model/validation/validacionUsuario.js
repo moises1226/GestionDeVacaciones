@@ -6,6 +6,6 @@ const esquemaUsuario = z.object({
     gmail : z.string().min(1 , "Necesita ingresar el gmail"),
     contrasenia  : z.string().min(8 , "Necesita ingresar por lo menos 8 caracteres")
 
-})
+});
 
 export default esquemaUsuario;
