@@ -25,8 +25,8 @@ const NavBar = () => {
           <NavLink to="/validacion" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Validacion</NavLink>
         </nav>
         
-        <NavLink to="/registro" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Registro</NavLink>
-        <NavLink to="/Login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink>
+        {/* <NavLink to="/Registro" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Registro</NavLink>
+        <NavLink to="/Login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink> */}
       </div>
     </header>
   );

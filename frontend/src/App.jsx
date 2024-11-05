@@ -10,7 +10,7 @@ import Calendario from "./pages/Calendario";
 import Validacion from "./pages/Validacion";
 import FormularioVacaciones from "./pages/FormularioVacaciones";
 
-// Función  de ruta protegida
+// Función de ruta protegida
 function ProtectedRoute({ isAuthenticated, children }) {
   return isAuthenticated ? children : <Navigate to="/Login" />;
 }
@@ -22,47 +22,51 @@ function App() {
   const isAuthPage = location.pathname === "/Login" || location.pathname === "/Registro";
 
   return (
-    <div className={`min-h-screen flex flex-col ${isAuthPage ? "justify-center items-center bg-gray-100" : "bg-primary"}`}>
-      {/* Solo muestra el NavBar si no estás en login o registro */}
-      {!isAuthPage && <NavBar />}
-
-      <Layout className={isAuthPage ? "w-full" : "flex-grow"}>
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      {/* Rutas de autenticación sin Layout */}
+      {isAuthPage ? (
         <Routes>
-          {/* Ruta de inicio protegida */}
-          <Route path="/" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Inicio />
-            </ProtectedRoute>
-          } />
-
-          {/* Rutas públicas */}
           <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/Registro" element={<Registro setIsAuthenticated={setIsAuthenticated} />} />
-
-          {/* Rutas protegidas */}
-          <Route path="/Calendario" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Calendario />
-            </ProtectedRoute>
-          } />
-          <Route path="/formularioVacaciones" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <FormularioVacaciones />
-            </ProtectedRoute>
-          } />
-          <Route path="/Validacion" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Validacion />
-            </ProtectedRoute>
-          } />
-
-          {/* Ruta por defecto */}
-          <Route path="/*" element={<Navigate to="/" />} />
+          <Route path="/*" element={<Navigate to="/Login" />} /> {/* Redirige a login si no coincide con ninguna ruta */}
         </Routes>
-      </Layout>
+      ) : (
+        // Rutas principale NavBar, y Footer
+        <>
+          <NavBar />
+          <Layout className="flex-grow">
+            <Routes>
+              {/* Ruta de inicio protegida */}
+              <Route path="/" element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Inicio />
+                </ProtectedRoute>
+              } />
+              
+              {/* Rutas protegidas */}
+              <Route path="/Calendario" element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Calendario />
+                </ProtectedRoute>
+              } />
+              <Route path="/formularioVacaciones" element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <FormularioVacaciones />
+                </ProtectedRoute>
+              } />
+              <Route path="/Validacion" element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Validacion />
+                </ProtectedRoute>
+              } />
 
-      {/* Solo muestra el Footer si no estás en login o registro */}
-      {!isAuthPage && <Footer />}
+              {/* Ruta por defecto */}
+              <Route path="/*" element={<Navigate to="/" />} />
+            </Routes>
+          </Layout>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
