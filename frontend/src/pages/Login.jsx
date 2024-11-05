@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logoPagina.png';
+import Cargador from '../components/cargador.jsx'; // Importa el componente Cargador
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Hook para redireccionar
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Verificar si el email ingresado es el permitido
+    setIsLoading(true); 
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     if (email === 'moises.aguilar@gmail.com') {
-      setIsAuthenticated(true);  // Autentica al usuario
-      navigate('/');  // Redirige al contenido principal
+      setIsAuthenticated(true);
+      navigate('/');
     } else {
       alert('Acceso denegado: Email incorrecto');
     }
+    setIsLoading(false);
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <img src={logo} alt="Logo" className="mx-auto mb-6 w-24 h-auto" />
-        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">Iniciar sesion</h1>
+        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">Iniciar sesión</h1>
 
         <form onSubmit={handleLogin}>
           <div className="relative flex items-center mt-4">
@@ -60,13 +65,14 @@ const Login = ({ setIsAuthenticated }) => {
           <div className="mt-6">
             <button 
               type="submit"
-              className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 flex items-center justify-center"
+              disabled={isLoading}
             >
-              Iniciar sesión
+              {isLoading ? <Cargador /> : "Iniciar sesión"}
             </button>
             <div className="mt-6 text-center">
               <NavLink to="/Registro" className="text-sm text-blue-500 hover:underline">
-                ¿Aún no tienes una cuenta? Registrate
+                ¿Aún no tienes una cuenta? Regístrate
               </NavLink>
             </div>
           </div>

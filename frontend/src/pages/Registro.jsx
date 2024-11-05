@@ -47,12 +47,13 @@ const Registro = () => {
 
     // Envío del formulario de usuario
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         if (userData.contrasenia !== userData.confirmarPassword) {
             alert("Las contraseñas no coinciden");
             return;
         }
-    
+
         setCargando(true);
         try {
             const nuevoUsuario = {
@@ -234,8 +235,8 @@ return (
                             </span>
                             <input
                                 type="text"
-                                name="nombreUsuario"
-                                value={userData.nombreUsuario}
+                                name="nombre"
+                                value={userData.nombre}
                                 onChange={handleUserChange}
                                 className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                                 placeholder="Nombre de Usuario"
