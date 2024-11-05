@@ -22,7 +22,7 @@ const Login = ({ setIsAuthenticated }) => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <img src={logo} alt="Logo" className="mx-auto mb-6 w-24 h-auto" />
-        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">Login</h1>
+        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">Iniciar sesion</h1>
 
         <form onSubmit={handleLogin}>
           <div className="relative flex items-center mt-4">
