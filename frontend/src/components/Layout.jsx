@@ -2,7 +2,7 @@ import React from 'react';
 
 const Layout = (props) => {
   return (
-    <section className="flex-grow "> 
+    <section className=""> 
       {props.children}
     </section>
   );

@@ -23,7 +23,7 @@ const Usuario = sq.define('Usuario' , {
     }},{
         tableName : "Usuario",
         timestamps : false
-    });5
+    });
 
 
     export default Usuario;
