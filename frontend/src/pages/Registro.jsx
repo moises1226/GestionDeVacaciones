@@ -316,7 +316,7 @@ return (
                                 Registrarse
                             </button>
                             <div className="mt-6 text-center">
-                                <NavLink to="/login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
+                                <NavLink to="/Login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
                             </div>
                         </div>
                     </>

@@ -9,24 +9,21 @@ const NavBar = () => {
   const isHome = location.pathname === "/"; 
 
   return (
-    <header className={`body-font font-black w-full ${isHome ? 'absolute z-20' : 'relative'}  ${isHome ? 'bg-transparent' : 'bg-white shadow-md'}`}>
-      <div className=" flex flex-wrap p-2 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center mb-4 md:mb-0">
-          
-          <img src={logo} alt="Logo" className="mx-auto mb-4 w-20 h-auto"   />
-          <span className={`mb-4 text-xl font-semibold ${isHome ? 'text-white' : 'text-black'}`}>NilCors</span>
+    <header className={`body-font font-black w-full ${isHome ? 'absolute z-20' : 'relative'} ${isHome ? 'bg-transparent' : 'bg-white shadow-md'}`}>
+      <div className="flex items-center justify-between p-2">
+        {/* Logo e imagen */}
+        <div className="flex items-center">
+          <img src={logo} alt="Logo" className="w-20 h-auto mr-2" />
+          <span className={`text-xl font-semibold ${isHome ? 'text-white' : 'text-black'}`}>NilCors</span>
+        </div>
 
-        </a>
-       
-        <nav className= " pl-14 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'} `}>Inicio</NavLink>
+        {/* Navegación */}
+        <nav className="flex items-center space-x-4">
+          <NavLink to="/" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Inicio</NavLink>
           <NavLink to="/calendario" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Calendario</NavLink>
           <NavLink to="/formularioVacaciones" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Formulario Vacaciones</NavLink>
-          <NavLink to="/validacion" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Validacion</NavLink>
+          <NavLink to="/validacion" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Validación</NavLink>
         </nav>
-        
-        {/* <NavLink to="/Registro" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Registro</NavLink>
-        <NavLink to="/Login" className={({ isActive }) => `${isActive ? activeLink : btn_link} ${isHome ? 'text-white' : 'text-black'}`}>Login</NavLink> */}
       </div>
     </header>
   );
