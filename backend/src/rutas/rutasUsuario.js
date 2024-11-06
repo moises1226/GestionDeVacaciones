@@ -1,6 +1,9 @@
 import {Router} from 'express';
 import { mostrarUsuarioController ,  crearUsuarioController , eliminarUsuarioController } from '../controller/usuarioControlador.js';
 import { mostrarFormularioController , crearFormularioController , eliminarFormularioController } from '../controller/formularioControlador.js';
+import { iniciarSesionControlador, cerrarSesionControlador } from '../controller/loginUsuarioControlador.js';
+
+
 
 const ruta = Router();
 
@@ -13,5 +16,11 @@ ruta.delete("/eliminarUsuario/:id" , eliminarUsuarioController);
 ruta.get("/mostrarRegistradosF"  , mostrarFormularioController)
 ruta.post("/crearFormulario" , crearFormularioController );
 ruta.delete("/eliminarRegistroF/:id" , eliminarFormularioController);
+
+// Ruta para login
+ruta.post('/acceso', iniciarSesionControlador);
+
+// Ruta para logout
+ruta.post('/cerrarSesion', cerrarSesionControlador);
 
 export default ruta;

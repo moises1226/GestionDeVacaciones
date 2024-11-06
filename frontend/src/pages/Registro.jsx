@@ -11,13 +11,15 @@ const Registro = () => {
     const [adminData, setAdminData] = useState({
         nombre: '',
         gmail: '',
-        contrasenia: ''
+        contrasenia: '',
+        confirmarPassword: ''
     });
 
     const [userData, setUserData] = useState({
         nombre: '',
         gmail: '',
-        contrasenia: ''
+        contrasenia: '',
+        confirmarPassword: ''
     });
 
     // Estado temporal para confirmar contraseña en el formulario, solo en frontend
@@ -224,10 +226,11 @@ return (
                         </div>
                     </>
                 ) : (
-                    // Si se selecciona el login de Usuario
+                  
                     <>
                     <h2 className="mt-6 text-xl font-semibold text-center">Registrarse como Usuario</h2>
                     
+                    {/* Campo Nombre de Usuario */}
                     <div className="relative flex items-center mt-8">
                         <span className="absolute">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -244,6 +247,7 @@ return (
                         />
                     </div>
                 
+                    {/* Campo Gmail */}
                     <div className="relative flex items-center mt-6">
                         <span className="absolute">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -260,7 +264,7 @@ return (
                         />
                     </div>
                 
-                    {/* Input para Antigüedad */}
+                    {/* Campo Antigüedad */}
                     <div className="relative flex items-center mt-6">
                         <span className="absolute">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -277,6 +281,7 @@ return (
                         />
                     </div>
                 
+                    {/* Campo Contraseña */}
                     <div className="relative flex items-center mt-6">
                         <span className="absolute">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -302,19 +307,47 @@ return (
                                 </svg>
                             )}
                         </span>
-                        </div>
+                    </div>
                 
+                    {/* Campo Confirmar Contraseña */}
+                    <div className="relative flex items-center mt-6">
+                        <span className="absolute">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </span>
+                        <input
+                            type={showConfirmPassword ? 'text' : 'password'} // Cambia el tipo según el estado
+                            name="confirmarPassword"
+                            value={userData.confirmarPassword}
+                            onChange={handleUserChange}
+                            className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
+                            placeholder="Confirmar Contraseña"
+                        />
+                        <span onClick={toggleConfirmPasswordVisibility} className="absolute right-3 cursor-pointer">
+                            {showConfirmPassword ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-6 h-6 fill-current text-gray-500">
+                                    <path d="..."/>
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6 fill-current text-gray-500">
+                                    <path d="..."/>
+                                </svg>
+                            )}
+                        </span>
+                    </div>
                 
-                        {/* Botón de registro para usuario */}
-                        <div className="mt-6">
-                            <button className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
-                                Registrarse
-                            </button>
-                            <div className="mt-6 text-center">
-                                <NavLink to="/Login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
-                            </div>
+                    {/* Botón de registro para usuario */}
+                    <div className="mt-6">
+                        <button className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
+                            Registrarse
+                        </button>
+                        <div className="mt-6 text-center">
+                            <NavLink to="/Login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
                         </div>
-                    </>
+                    </div>
+                </>
+                
                 )}
             </form>
         </div>

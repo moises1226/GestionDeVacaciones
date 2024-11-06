@@ -1,8 +1,6 @@
 // /routes/authRoutes.js
 import express from 'express';
-import { iniciarSesionControlador } from '../controller/loginUsuarioControlador.js';
-import { cerrarSesionControlador } from '../controller/loginUsuarioControlador.js';
-import ruta from './rutasUsuario.js';
+import { iniciarSesionControlador, cerrarSesionControlador } from '../controller/loginUsuarioControlador.js';
 
 const ruta = express.Router();
 
