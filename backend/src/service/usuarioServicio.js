@@ -1,53 +1,41 @@
 import { where } from "sequelize";
 import usuario from "../model/Usuario.js";
-import validacionUs from "../model/validation/validacionUsuario.js"
+import validacionUsuario from "../model/validation/validacionUsuario.js";
+import bcrypt from "bcrypt";
 
-
-
-export const mostrarUsuarioService = async () => {
-
-    const mostrarUsuario = await usuario.findAll();
-    return mostrarUsuario;
-
+export const mostrarUsuariosServicio = async () => {
+    const listaUsuarios = await usuario.findAll();
+    return listaUsuarios;
 }
 
+export const crearUsuarioServicio = async (datosUsuario) => {
+   
+    const usuarioValido = validacionUsuario.parse(datosUsuario);
 
-
-export const crearUsuarioServicio = async (u) => {
-
-
-    const verificacionUsuario = validacionUs.parse(u);
-
-    const gmailExistente = await usuario.findOne({ where  : {gmail : verificacionUsuario.gmail} });
-
-    
-    if(gmailExistente){
-        throw new Error("El correo que ingreso ya esta registrado")
+    // Comprobación de correo
+    const correoExistente = await usuario.findOne({ where: { gmail: usuarioValido.gmail } });
+    if (correoExistente) {
+        throw new Error("El correo que ingresó ya está registrado");
     }
 
-    const _user = await usuario.create(verificacionUsuario);
+    // Encriptación de contraseña
+    const contraseniaEncriptada = await bcrypt.hash(usuarioValido.contrasenia, 10);
 
-    return _user;
-
-
-}
-
-
-export const eliminarUsuarioServicio = async (id) => {
-    
-    const usuarioEliminado = await usuario.findOne({
-        where: { id: id }
+    const nuevoUsuario = await usuario.create({
+        ...usuarioValido,
+        contrasenia: contraseniaEncriptada
     });
 
-    if (!usuarioEliminado) {
+    return nuevoUsuario;
+}
+
+export const eliminarUsuarioServicio = async (idUsuario) => {
+    const usuarioAEliminar = await usuario.findOne({ where: { id: idUsuario } });
+
+    if (!usuarioAEliminar) {
         return null;
     }
-    await usuario.destroy({
-        where: { id: id }
-    });
+    await usuario.destroy({ where: { id: idUsuario } });
 
-    return usuarioEliminado.id;
-    
-    
+    return usuarioAEliminar.id;
 }
-

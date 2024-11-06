@@ -226,90 +226,85 @@ return (
                 ) : (
                     // Si se selecciona el login de Usuario
                     <>
-                        <h2 className="mt-6 text-xl font-semibold text-center">Registrarse como Usuario</h2>
-                        <div className="relative flex items-center mt-8">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <h2 className="mt-6 text-xl font-semibold text-center">Registrarse como Usuario</h2>
+                    
+                    <div className="relative flex items-center mt-8">
+                        <span className="absolute">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </span>
+                        <input
+                            type="text"
+                            name="nombre"
+                            value={userData.nombre}
+                            onChange={handleUserChange}
+                            className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
+                            placeholder="Nombre de Usuario"
+                        />
+                    </div>
+                
+                    <div className="relative flex items-center mt-6">
+                        <span className="absolute">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </span>
+                        <input
+                            type="email"
+                            name="gmail"
+                            value={userData.gmail}
+                            onChange={handleUserChange}
+                            className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
+                            placeholder="Ingresar Gmail"
+                        />
+                    </div>
+                
+                    {/* Input para Antigüedad */}
+                    <div className="relative flex items-center mt-6">
+                        <span className="absolute">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-4.418 0-8 2.686-8 6v2a2 2 0 002 2h12a2 2 0 002-2v-2c0-3.314-3.582-6-8-6z" />
+                            </svg>
+                        </span>
+                        <input
+                            type="number"
+                            name="antiguedad"
+                            value={userData.antiguedad}
+                            onChange={handleUserChange}
+                            className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
+                            placeholder="Años de Antigüedad"
+                        />
+                    </div>
+                
+                    <div className="relative flex items-center mt-6">
+                        <span className="absolute">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </span>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            name="contrasenia"
+                            value={userData.contrasenia}
+                            onChange={handleUserChange}
+                            className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
+                            placeholder="Contraseña"
+                        />
+                        <span onClick={togglePasswordVisibility} className="absolute right-3 cursor-pointer">
+                            {showPassword ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-6 h-6 fill-current text-gray-500">
+                                    <path d="..."/>
                                 </svg>
-                            </span>
-                            <input
-                                type="text"
-                                name="nombre"
-                                value={userData.nombre}
-                                onChange={handleUserChange}
-                                className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
-                                placeholder="Nombre de Usuario"
-                            />
-                        </div>
-                        <div className="relative flex items-center mt-6">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6 fill-current text-gray-500">
+                                    <path d="..."/>
                                 </svg>
-                            </span>
-                            <input
-                                type="email"
-                                name="gmail"
-                                value={userData.gmail}
-                                onChange={handleUserChange}
-                                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
-                                placeholder="Ingresar Gmail"
-                            />
+                            )}
+                        </span>
                         </div>
-                        <div className="relative flex items-center mt-6">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </span>
-                            <input
-                                type={showPassword ? 'text' : 'password'} // Cambia el tipo según el estado
-                                name="contrasenia"
-                                value={userData.contrasenia}
-                                onChange={handleUserChange}
-                                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
-                                placeholder="Contraseña"
-                            />
-                            <span onClick={togglePasswordVisibility} className="absolute right-3 cursor-pointer">
-                                {showPassword ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-6 h-6 fill-current text-gray-500">
-                                        <path d="..."/>
-                                    </svg>
-                                ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6 fill-current text-gray-500">
-                                        <path d="..."/>
-                                    </svg>
-                                )}
-                            </span>
-                        </div>
-                        <div className="relative flex items-center mt-6">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </span>
-                            <input
-                                type={showConfirmPassword ? 'text' : 'password'} // Cambia el tipo según el estado
-                                name="confirmarPassword"
-                                value={userData.confirmarPassword}
-                                onChange={handleUserChange}
-                                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
-                                placeholder="Confirmar Contraseña"
-                            />
-                            <span onClick={toggleConfirmPasswordVisibility} className="absolute right-3 cursor-pointer">
-                                {showConfirmPassword ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-6 h-6 fill-current text-gray-500">
-                                        <path d="..."/>
-                                    </svg>
-                                ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6 fill-current text-gray-500">
-                                        <path d="..."/>
-                                    </svg>
-                                )}
-                            </span>
-                        </div>
-
+                
+                
                         {/* Botón de registro para usuario */}
                         <div className="mt-6">
                             <button className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">

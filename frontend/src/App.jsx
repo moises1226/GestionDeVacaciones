@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import Calendario from "./pages/Calendario";
 import Validacion from "./pages/Validacion";
-import FormularioVacaciones from "./pages/FormularioVacaciones";
+import FormularioVacaciones from "./pages/formularioVacaciones.jsx";
 
 // Función de ruta protegida
 function ProtectedRoute({ isAuthenticated, children }) {

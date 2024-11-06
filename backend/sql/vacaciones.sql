@@ -6,7 +6,7 @@ CREATE TABLE Usuario (
     nombre VARCHAR(50) not null,
     gmail VARCHAR(100) NOT NULL UNIQUE,
     contrasenia VARCHAR(255) NOT NULL
-    -- antiguedad VARCHAR(50) NOT NULL
+    antiguedad INT NOT NULL
 );
 
 CREATE TABLE Formulario (

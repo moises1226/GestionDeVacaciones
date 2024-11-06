@@ -13,7 +13,8 @@ const Usuario = sq.define('Usuario' , {
     gmail : {   
 
         type : DataTypes.STRING,
-        allowNull : true
+        allowNull : true,
+        unique : true
 
     },  
 
