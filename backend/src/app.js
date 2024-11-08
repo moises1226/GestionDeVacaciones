@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import ruta from "./rutas/rutasUsuario.js";
+import ruta from "./rutas/rutasCompletas.js";
 import { corsMiddleware } from "./middleware/cors.js";
 import sessionMiddleware from './middleware/sesion.js'; 
 

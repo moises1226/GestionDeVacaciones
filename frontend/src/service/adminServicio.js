@@ -18,7 +18,7 @@ export const obtenerAdministradores = async () => {
 }  
 
 
-export const crearAdministradores = async (nuevoAdmin) => {
+export const crearAdministrador = async (nuevoAdmin) => {
 
     try {
         
