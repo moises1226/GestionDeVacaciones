@@ -1,27 +1,20 @@
 import cors from "cors";
 
 const urlsPermitidos = [
-
-    "http://localhost:5173",
-    "http://localhost:3000"
-
-]
-
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
 
 export const corsMiddleware = ({ acceptedOrigins = urlsPermitidos } = {}) =>
-    cors({
-      origin: (origin, callback) => {
-        if (acceptedOrigins.includes(origin)) {
-          return callback(null, true);
-        }
+  cors({
+    origin: (origin, callback) => {
+      if (acceptedOrigins.includes(origin) || !origin) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true, // Permite el envío de credenciales
+  });
+
+
   
-        if (!origin) {
-          return callback(null, true);
-        }
-  
-        return callback(new Error('Not allowed by CORS'));
-      },
-    });
-
-
-
