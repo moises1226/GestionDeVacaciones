@@ -34,5 +34,16 @@ export const crearFormulario = async (nuevoFormulario) => {
 
 }
 
+export const eliminarFormularioPorGmail = async (gmail) => {
+    try {
+      
+        const respuesta = await api.delete(`/eliminarRegistroF/${gmail}`);
 
+        return respuesta.data;
+
+    } catch (error) {
+        console.error('Error al eliminar el formulario:', error);
+        throw error; 
+    }
+};
 

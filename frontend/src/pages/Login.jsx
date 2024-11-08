@@ -19,7 +19,7 @@
         const response = await api.post('/acceso', { gmail, contrasenia });
 
         // Si la respuesta es exitosa (status 200)
-        if (response.status === 200) {
+        if (response.status === 200 ) {
           // Configura el estado de autenticación en el front
           setIsAuthenticated(true);
           // Redirige a la página principal

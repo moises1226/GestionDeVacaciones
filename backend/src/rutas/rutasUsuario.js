@@ -15,7 +15,7 @@ ruta.delete("/eliminarUsuario/:id" , eliminarUsuarioController);
 //rutas de formulario
 ruta.get("/mostrarRegistradosF"  , mostrarFormularioController)
 ruta.post("/crearFormulario" , crearFormularioController );
-ruta.delete("/eliminarRegistroF/:id" , eliminarFormularioController);
+ruta.delete("/eliminarRegistroF/:gmail", eliminarFormularioController);
 
 // Ruta para login
 ruta.post('/acceso', iniciarSesionControlador);

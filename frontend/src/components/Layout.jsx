@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
-    <section className=""> 
-      {props.children}
+    <section className="flex-grow">
+        {children}
     </section>
   );
 }

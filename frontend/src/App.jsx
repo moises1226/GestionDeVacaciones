@@ -22,7 +22,7 @@ function App() {
   const isAuthPage = location.pathname === "/Login" || location.pathname === "/Registro";
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div >
       {/* Rutas de autenticación sin Layout */}
       {isAuthPage ? (
         <Routes>

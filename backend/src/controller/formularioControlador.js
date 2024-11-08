@@ -50,34 +50,14 @@ export const crearFormularioController = async (req , res ) => {
 
 }
 
-export const eliminarFormularioController = async (req  ,res ) => {
+export const eliminarFormularioController = async (req, res) => {
+    const { gmail } = req.params;
 
-        try {
+    const resultado = await eliminarFormularioServicio(gmail);
 
-            const {id} = req.params;
-            const idForulario_eliminado = await eliminarFormularioServicio(id);
+    if (resultado.message.includes('El registro')) {  //inidica q se fue eliminado correctamene el gmail
+        return res.status(200).json(resultado); 
+    }
 
-            if (!idForulario_eliminado) {
-                console.error("El ID de formulario ingresado no existe");
-                return res.status(404).json({ error: 'El ID de formulario que ingresó no existe' });
-            }
-    
-            return res.status(200).json(`el id de que elimino es : ${idForulario_eliminado}`);
-
-
-        } catch (error) {
-
-            if(error instanceof z.ZodError){
-
-                return res.status(400).json({errors : error.errors});
-    
-            }  
-           
-            console.error("error al elimar el registro" , error);
-            return res.status(500).json({error : "error al eliminar el registro"})
-            
-        }
-    
-
-
-}
+    return res.status(404).json(resultado); // El registro no se encontró
+};

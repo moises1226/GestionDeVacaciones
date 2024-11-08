@@ -32,21 +32,26 @@ export const crearFormularioServicio = async (f) => {
 }
 
 
-export const eliminarFormularioServicio = async (id) => {
-    
-    const registroEliminado = await formulario.findOne({
-        where: { id: id }
-    });
+// services/formularioServicio.js
+export const eliminarFormularioServicio = async (gmail) => {
+    try {
+        const registroEliminado = await formulario.findOne({
+            where: { gmail: gmail }
+        });
 
-    if (!registroEliminado) {
-        return null;
+        if (!registroEliminado) {
+            return { message: 'No se encontró un registro con ese correo.' };
+        }
+
+        await formulario.destroy({
+            where: { gmail: gmail }
+        });
+
+        return { message: `El registro con correo ${gmail} ha sido eliminado.` };
+
+    } catch (error) {
+        console.error('Error al eliminar el registro:', error);
+        return { message: 'Hubo un error al eliminar el registro. Intenta nuevamente.' };
     }
-    await formulario.destroy({
-        where: { id: id }
-    });
-
-    return registroEliminado.id;
-    
-    
-}
+};
 
