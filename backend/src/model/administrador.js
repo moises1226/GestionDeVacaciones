@@ -20,10 +20,18 @@ const Admin = sq.define('Admin' , {
     contrasenia : {
         type : DataTypes.STRING,
         allowNull : true
-    }},{
+
+    },
+
+    permisos : {
+
+        type : DataTypes.STRING,
+        allowNull : false
+
+    } },{
         tableName : "Admin",
         timestamps : false
-    });5
+    });
 
 
     export default Admin;

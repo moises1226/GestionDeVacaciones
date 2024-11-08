@@ -5,7 +5,6 @@ import {crearUsuario } from "../service/usuarioServicio.js";
 const Registro = () => {
     
     const [showAdminLogin, setShowAdminLogin] = useState(false);
-    const [cargando , setCargando] = useState(false);
     
     // Estado para datos del usuario y del administrador, sin confirmarPassword
     const [adminData, setAdminData] = useState({
@@ -19,11 +18,10 @@ const Registro = () => {
         nombre: '',
         gmail: '',
         contrasenia: '',
-        confirmarPassword: ''
+        confirmarPassword: '',
+        antiguedad: ''  // Aquí se agrega antiguedad al estado
     });
-
-    // Estado temporal para confirmar contraseña en el formulario, solo en frontend
-    const [confirmarPassword, setConfirmarPassword] = useState('');
+   
 
     // Funciones de cambio de datos de entrada para usuario y admin
     const handleUserChange = (e) => {
@@ -33,6 +31,7 @@ const Registro = () => {
             [name]: value,
         }));
     };
+    
 
     const handleAdminChange = (e) => {
         const { name, value } = e.target;
@@ -43,46 +42,93 @@ const Registro = () => {
     };
 
     // Función para manejar el cambio de confirmarPassword
-    const handleConfirmPasswordChange = (e) => {
-        setConfirmarPassword(e.target.value);
-    };
+    // const handleConfirmPasswordChange = (e) => {
+    //     setConfirmarPassword(e.target.value);
+    // };
 
     // Envío del formulario de usuario
     const handleSubmit = async (e) => {
-        
         e.preventDefault();
+    
+        if (!userData.nombre || !userData.gmail || !userData.contrasenia || !userData.confirmarPassword || !userData.antiguedad) {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
         if (userData.contrasenia !== userData.confirmarPassword) {
             alert("Las contraseñas no coinciden");
             return;
         }
-
-        setCargando(true);
+    
         try {
+          
             const nuevoUsuario = {
                 nombre: userData.nombre,
                 gmail: userData.gmail,
                 contrasenia: userData.contrasenia,
-                // antiguedad: userData.antiguedad // Asegúrate de incluir cualquier otro dato necesario
+                antiguedad: parseInt(userData.antiguedad, 10), 
+                permisos: "usuario",
             };
             
+            // Llamada a la función para crear el usuario
             const usuarioCreado = await crearUsuario(nuevoUsuario);
-            console.log('Usuario creado:', usuarioCreado);
             
+            // Limpiar el formulario después del envío
             setUserData({
                 nombre: '',
                 gmail: '',
                 contrasenia: '',
                 confirmarPassword: '', 
-                antiguedad: ''
+                antiguedad: ''  // Asegúrate de limpiar también la antigüedad
             });
         } catch (error) {
             console.error('Error al crear el usuario:', error);
         } finally {
-            setCargando(false);
+           
         }
 
 
     };
+
+    const handleAdminSubmit = async (e) => {
+        e.preventDefault();
+    
+        // Verificar si los campos del formulario están completos
+        if (!adminData.nombre || !adminData.gmail || !adminData.contrasenia || !adminData.confirmarPassword) {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
+    
+        // Verificar si las contraseñas coinciden
+        if (adminData.contrasenia !== adminData.confirmarPassword) {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+    
+        try {
+            const nuevoAdmin = {
+                nombre: adminData.nombre,
+                gmail: adminData.gmail,
+                contrasenia: adminData.contrasenia,
+                permisos: "admin",
+            };
+    
+            // Llamada a la función para crear el administrador
+            const adminCreado = await crearAdministrador(nuevoAdmin);
+            
+            // Limpiar el formulario después del envío
+            setAdminData({
+                nombre: '',
+                gmail: '',
+                contrasenia: '',
+                confirmarPassword: ''
+            });
+        } catch (error) {
+            console.error('Error al crear el administrador:', error);
+        }
+    };
+    
+    
+
 
         const handleAdminClick = () => {
         setShowAdminLogin(true);
@@ -106,7 +152,7 @@ return (
     <div className="flex justify-center p-3 ml-6">
         {/* Contenedor para el marco y sombra */}
         <div className="shadow-lg rounded-lg overflow-hidden border border-gray-200 bg-white w-full max-w-md px-14 py-4" >
-            <form className="w-full max-w-md" onSubmit={handleSubmit}>
+           
                 {/* Sección para seleccionar entre Administrador y Usuario */}
                 <div className="flex items-center justify-center mt-6 relative">
                     {/* Enlace para el login de administrador */}
@@ -123,6 +169,7 @@ return (
                 {/* Si se selecciona el login de Administrador */}
                 {showAdminLogin ? (
                     <>
+                     <form className="w-full max-w-md" onSubmit={handleAdminSubmit}>
                         <h2 className="mt-6 text-xl font-semibold text-center">Registrarse como Administrador</h2>
 
                         {/* Campo para el nombre del administrador */}
@@ -224,10 +271,12 @@ return (
                                 <NavLink to="/login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
                             </div>
                         </div>
+                        </form>
                     </>
                 ) : (
                   
                     <>
+                    <form className="w-full max-w-md" onSubmit={handleSubmit}>
                     <h2 className="mt-6 text-xl font-semibold text-center">Registrarse como Usuario</h2>
                     
                     {/* Campo Nombre de Usuario */}
@@ -265,7 +314,8 @@ return (
                     </div>
                 
                     {/* Campo Antigüedad */}
-                    <div className="relative flex items-center mt-6">
+
+                        <div className="relative flex items-center mt-6">
                         <span className="absolute">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-4.418 0-8 2.686-8 6v2a2 2 0 002 2h12a2 2 0 002-2v-2c0-3.314-3.582-6-8-6z" />
@@ -275,12 +325,12 @@ return (
                             type="number"
                             name="antiguedad"
                             value={userData.antiguedad}
-                            onChange={handleUserChange}
+                            onChange={handleUserChange} 
                             className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring focus:ring-blue-300 focus:outline-none"
                             placeholder="Años de Antigüedad"
                         />
                     </div>
-                
+
                     {/* Campo Contraseña */}
                     <div className="relative flex items-center mt-6">
                         <span className="absolute">
@@ -339,17 +389,19 @@ return (
                 
                     {/* Botón de registro para usuario */}
                     <div className="mt-6">
-                        <button className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
+                        <button   onClick={handleSubmit}    className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
                             Registrarse
                         </button>
                         <div className="mt-6 text-center">
                             <NavLink to="/Login" className="text-sm text-blue-500 hover:underline">Ya tienes una cuenta? Ingresa</NavLink>
                         </div>
                     </div>
+
+                    </form>
                 </>
                 
                 )}
-            </form>
+          
         </div>
     </div>
 );

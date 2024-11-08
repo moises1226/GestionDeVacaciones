@@ -1,30 +1,31 @@
-import sq from "../config/conexion-db.js"
-import { DataTypes } from "sequelize"
+import sq from "../config/conexion-db.js";
+import { DataTypes } from "sequelize";
 
-const Usuario = sq.define('Usuario' , {
-
-    nombre : { 
-        
-        type : DataTypes.STRING,
-        allowNull : true,
-    
+const Usuario = sq.define('Usuario', {
+    nombre: { 
+        type: DataTypes.STRING,
+        allowNull: true,
     },
-
-    gmail : {   
-
-        type : DataTypes.STRING,
-        allowNull : true,
-        unique : true
-
+    gmail: {   
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true,
     },  
+    contrasenia: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    antiguedad: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    permisos: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    }
+}, {
+    tableName: "Usuario",
+    timestamps: false,
+});
 
-    contrasenia : {
-        type : DataTypes.STRING,
-        allowNull : true
-    }},{
-        tableName : "Usuario",
-        timestamps : false
-    });
-
-
-    export default Usuario;
+export default Usuario;

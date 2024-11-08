@@ -6,7 +6,8 @@ CREATE TABLE Usuario (
     nombre VARCHAR(50) not null,
     gmail VARCHAR(100) NOT NULL UNIQUE,
     contrasenia VARCHAR(255) NOT NULL
-    antiguedad INT NOT NULL
+    antiguedad INT NOT NULL,
+    permisos varchar(50) NOT NULL
 );
 
 CREATE TABLE Formulario (
@@ -24,5 +25,6 @@ CREATE TABLE Administrador (
     nombre VARCHAR(50) NOT NULL,
     gmail VARCHAR(100) NOT NULL UNIQUE,
     contraseña VARCHAR(50) NOT NULL
+    permisos varchar(50) NOT NULL
 
 );
