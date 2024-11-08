@@ -232,7 +232,7 @@ return (
                                 <span onClick={togglePasswordVisibility} className="absolute right-3 cursor-pointer">
                                     {showPassword ? (
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" className="w-6 h-6 fill-current text-gray-500">
-                                            <path d="..."/>
+                                         <path d="..."/> 
                                         </svg>
                                     ) : (
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-6 h-6 fill-current text-gray-500">

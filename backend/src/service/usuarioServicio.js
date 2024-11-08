@@ -1,15 +1,12 @@
-import { where } from "sequelize";
 import usuario from "../model/Usuario.js";
 import validacionUsuario from "../model/validation/validacionUsuario.js";
 import bcrypt from "bcrypt";
 
 export const mostrarUsuariosServicio = async () => {
-    const listaUsuarios = await usuario.findAll();
-    return listaUsuarios;
-}
+    return await usuario.findAll();
+};
 
 export const crearUsuarioServicio = async (datosUsuario) => {
-   
     const usuarioValido = validacionUsuario.parse(datosUsuario);
 
     // Comprobación de correo
@@ -27,15 +24,12 @@ export const crearUsuarioServicio = async (datosUsuario) => {
     });
 
     return nuevoUsuario;
-}
+};
 
 export const eliminarUsuarioServicio = async (idUsuario) => {
-    const usuarioAEliminar = await usuario.findOne({ where: { id: idUsuario } });
-
-    if (!usuarioAEliminar) {
+    const filasEliminadas = await usuario.destroy({ where: { id: idUsuario } });
+    if (filasEliminadas === 0) {
         return null;
     }
-    await usuario.destroy({ where: { id: idUsuario } });
-
-    return usuarioAEliminar.id;
-}
+    return idUsuario;
+};

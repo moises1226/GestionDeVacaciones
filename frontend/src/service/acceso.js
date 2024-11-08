@@ -1,4 +1,4 @@
-import api from './api'; // Asegúrate de que la ruta sea correcta dependiendo de la estructura de tu proyecto
+import api from './api.js'; // Asegúrate de que la ruta sea correcta dependiendo de la estructura de tu proyecto
 
 // Función para iniciar sesión
 export const iniciarSesion = async (gmail, contrasenia) => {

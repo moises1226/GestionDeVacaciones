@@ -29,7 +29,7 @@ const sesion = session({
     resave: false,
     store: new CustomSequelizeStore({
         db: sq,
-        table: 'Sesion',
+        table: 'sesion',
         extendDefaultFields: (defaults, session) => {
             return {
                 data: JSON.stringify(session),

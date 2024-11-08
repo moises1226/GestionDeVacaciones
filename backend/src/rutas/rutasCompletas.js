@@ -30,7 +30,7 @@ ruta.post('/cerrarSesion', cerrarSesionControlador);
 //creacion de rutas admin
 ruta.get("/mostrarAdmin"  , mostrarAdminController )
 ruta.post("/crearAdmin" , crearAdminController );
-ruta.delete("/adminEliminado/id" , eliminarAdminController);
+ruta.delete("/adminEliminado/:id" , eliminarAdminController);
 
 
 export default ruta;

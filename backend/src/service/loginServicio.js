@@ -2,9 +2,9 @@ import bcrypt from 'bcryptjs';
 import usuario from '../model/Usuario.js';
 
 // Servicio para autenticar usuario
-export const autenticarUsuarioServicio = async (correo, contrasenia) => {
+export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
     // Buscar al usuario por el correo electrónico
-    const usuarioExistente = await usuario.findOne({ where: { gmail: correo } });
+    const usuarioExistente = await usuario.findOne({ where: { gmail: gmail } });
 
     if (!usuarioExistente) {
         throw new Error("Correo o contraseña incorrectos");
@@ -19,7 +19,6 @@ export const autenticarUsuarioServicio = async (correo, contrasenia) => {
 
     // Devuelvo la información del usuario (sin la contraseña)
     return {
-        id: usuarioExistente.id,
         nombre: usuarioExistente.nombre,
         correo: usuarioExistente.gmail,  // Cambié "gmail" por "correo" para mayor claridad
     };

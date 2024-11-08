@@ -26,7 +26,7 @@ const formulario = sq.define('formulario' , {
     }
 }, {
 
-    tableName : "Formulario",
+    tableName : "formulario",
     timestamps : false
 });
 

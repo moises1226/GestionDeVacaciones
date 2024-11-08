@@ -2,7 +2,7 @@
   import { NavLink, useNavigate } from 'react-router-dom';
   import logo from '../assets/logoPagina.png';
   import Cargador from '../components/cargador.jsx'; // Importa el componente Cargador
-  import api from '../service/api'; // Asegúrate de importar tu configuración de axios
+  import api from '../service/api.js'; // Asegúrate de importar tu configuración de axios
 
   const Login = ({ setIsAuthenticated }) => {
     const [gmail, setGmail] = useState('');
@@ -49,6 +49,7 @@
               </span>
               <input 
                 type="email" 
+                name='gmail'
                 value={gmail} 
                 onChange={(e) => setGmail(e.target.value)}
                 className="block w-full py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg px-11 focus:border-blue-400 focus:outline-none" 
@@ -65,6 +66,7 @@
               </span>
               <input 
                 type="password" 
+                name='contrasenia'
                 value={contrasenia} 
                 onChange={(e) => setContrasenia(e.target.value)} 
                 className="block w-full px-11 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:border-blue-400 focus:outline-none" 
