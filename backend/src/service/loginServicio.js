@@ -1,27 +1,35 @@
 import bcrypt from 'bcryptjs';
 import usuario from '../model/Usuario.js';
+import administrador from '../model/administrador.js'
 
-// Servicio para autenticar usuario
+// Servicio para autenticar usuario y administrador
 export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
-    // Buscar al usuario por el correo electrónico
+
     const usuarioExistente = await usuario.findOne({ where: { gmail: gmail } });
+    const adminExistente = await administrador.findOne({ where: { gmail: gmail } });
 
-    if (!usuarioExistente) {
-        throw new Error("Correo o contraseña incorrectos");
+    // Verificar si existe el usuario o el administrador
+    if (!usuarioExistente && !adminExistente) {
+        throw new Error("gmail no encontrado.");
     }
 
-    // Comparar la contraseña proporcionada con la almacenada en la base de datos
-    const esContraseñaValida = await bcrypt.compare(contrasenia, usuarioExistente.contrasenia);
-
-    if (!esContraseñaValida) {
-        throw new Error("Correo o contraseña incorrectos");
+    // Verifica si es un usuario y compara la contraseña
+    if (usuarioExistente) {
+        const contraseniaValidaUS = await bcrypt.compare(contrasenia, usuarioExistente.contrasenia);
+        if (!contraseniaValidaUS) {
+            throw new Error("La contraseña del usuario es incorrecta.");
+        }
+        return console.log("Autenticación de usuario exitosa");
     }
 
-    // Devuelvo la información del usuario (sin la contraseña)
-    return {
-        nombre: usuarioExistente.nombre,
-        correo: usuarioExistente.gmail,  // Cambié "gmail" por "correo" para mayor claridad
-    };
+    // Verifica si es un administrador y compara la contraseña
+    if (adminExistente) {
+        const contraseniaValidaAD = await bcrypt.compare(contrasenia, adminExistente.contrasenia);
+        if (!contraseniaValidaAD) {
+            throw new Error("La contraseña del administrador es incorrecta.");
+        }
+        return console.log("Autenticación de administrador exitosa");
+    }
 };
 
 // Servicio para manejar el logout (cerrar sesión)

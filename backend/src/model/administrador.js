@@ -1,26 +1,27 @@
 import sq from "../config/conexion-db.js"
 import { DataTypes } from "sequelize"
 
-const Admin = sq.define('admin', {
+//modelo de administrador
+const Administrador = sq.define('Administrador', {
     nombre: { 
         type: DataTypes.STRING,
-        allowNull: false,  // Cambié a false para que sea obligatorio
+        allowNull: false,  
     },
     gmail: {   
         type: DataTypes.STRING,
-        allowNull: false,  // Cambié a false
+        allowNull: false,  
     },  
     contrasenia: {
         type: DataTypes.STRING,
-        allowNull: false,  // Cambié a false
+        allowNull: false,  
     },
     permisos: {
         type: DataTypes.STRING,
         allowNull: false
     }
 }, {
-    tableName: "admin",
+    tableName: "Administrador",
     timestamps: false
 });
 
-export default Admin;
+export default Administrador;

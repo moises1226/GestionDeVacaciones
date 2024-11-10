@@ -72,6 +72,7 @@ const Registro = () => {
             
             // Llamada a la función para crear el usuario
             const usuarioCreado = await crearUsuario(nuevoUsuario);
+            alert("Usuario creado exitosamente.");
             
             // Limpiar el formulario después del envío
             setUserData({
@@ -108,7 +109,7 @@ const Registro = () => {
                 nombre: adminData.nombre,
                 gmail: adminData.gmail,
                 contrasenia: adminData.contrasenia,
-                permisos: "admin",
+                permisos: "admin"
             };
     
             // Llamada a la función para crear el administrador
@@ -127,7 +128,7 @@ const Registro = () => {
                 confirmarPassword: ''
             });
         } catch (error) {
-            console.error('Error al crear el administrador:', error);
+            console.error('Error al crear el administrador:', error.response?.data || error.message);
         }
     };
     
@@ -269,7 +270,7 @@ return (
 
                             {/* Botón de registro */}
                             <div className="mt-6">
-                                <button className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
+                                <button  onClick={handleAdminSubmit}  className="w-full px-6 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
                                     Registrarse
                                 </button>
                                 <div className="mt-6 text-center">

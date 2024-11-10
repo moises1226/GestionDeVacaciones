@@ -1,8 +1,8 @@
   import React, { useState } from 'react';
   import { NavLink, useNavigate } from 'react-router-dom';
   import logo from '../assets/logoPagina.png';
-  import Cargador from '../components/cargador.jsx'; // Importa el componente Cargador
-  import api from '../service/api.js'; // Asegúrate de importar tu configuración de axios
+  import Cargador from '../components/cargador.jsx'; 
+  import api from '../service/api.js'; 
 
   const Login = ({ setIsAuthenticated }) => {
     const [gmail, setGmail] = useState('');
@@ -15,18 +15,18 @@
       setIsLoading(true); 
 
       try {
-        // Petición a la API para autenticar al usuario
+        // Petición a la API para autenticar al usuario y administrador
         const response = await api.post('/acceso', { gmail, contrasenia });
 
-        // Si la respuesta es exitosa (status 200)
+    
         if (response.status === 200 ) {
-          // Configura el estado de autenticación en el front
+          // Configura el estado de autenticación en el frontend
           setIsAuthenticated(true);
           // Redirige a la página principal
           navigate('/');
         }
       } catch (error) {
-        // Si hay un error en la autenticación
+      
         console.error('Error al iniciar sesión:', error);
         alert('Correo o contraseña incorrectos');
       }

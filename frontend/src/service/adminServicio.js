@@ -8,12 +8,9 @@ export const obtenerAdministradores = async () => {
         return guardadoAdmins.data;
 
     } catch (error) {
-        
-        console.error('Error al obtener los administradores:', error);
+        console.error('Error al crear el administrador', error.response ? error.response.data : error.message);
         throw error; 
-
-    }
-
+      }
 
 }  
 
