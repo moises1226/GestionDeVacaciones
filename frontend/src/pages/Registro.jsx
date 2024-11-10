@@ -82,11 +82,8 @@ const Registro = () => {
                 antiguedad: ''  // Asegúrate de limpiar también la antigüedad
             });
         } catch (error) {
-            console.error('Error al crear el usuario:', error);
-        } finally {
-           
-        }
-
+            console.error('Error al crear el usuario:', error.response?.data || error.message);
+        } 
 
     };
 

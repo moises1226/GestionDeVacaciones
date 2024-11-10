@@ -2,7 +2,7 @@
     import morgan from 'morgan';
     import ruta from "../src/rutas/rutasCompletas.js";
     import { corsMiddleware } from "./middleware/cors.js";
-    import  sessionMiddleware from './middleware/sesion.js'; 
+   
 
     const app = express();
 
@@ -14,7 +14,6 @@
     // Middlewares
     app.use(express.json());
     app.use(morgan('dev')); 
-    app.use(sessionMiddleware); //midleware de inicio de sesion
 
     // Rutas
     app.use('/api', ruta);

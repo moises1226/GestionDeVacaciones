@@ -10,13 +10,7 @@ export const iniciarSesionControlador = async (req, res) => {
         const usuarioAutenticado = await autenticarUsuarioServicio(gmail, contrasenia);
 
         
-        delete usuarioAutenticado.contrasenia;
-
-        //almacenamiento de usuario en la sesión
-        req.session.usuario = {
-            gmail: usuarioAutenticado.gmail, 
-        };
-
+      
         return res.status(200).json({ mensaje: "Inicio de sesión exitoso" });
 
     } catch (error) {

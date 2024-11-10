@@ -27,6 +27,7 @@ const FormularioVacaciones = () => {
 
     try {
       await crearFormulario(DatosFormulario);
+      setError(false);
       alert('Formulario enviado con éxito');
 
       // Reiniciar el formulario
@@ -37,6 +38,7 @@ const FormularioVacaciones = () => {
         gmail: '',
         fecha_inicio: '',
       });
+      
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       setError('Error al enviar el formulario. Intente nuevamente.');

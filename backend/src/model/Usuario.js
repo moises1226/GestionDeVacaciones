@@ -1,7 +1,7 @@
     import sq from "../config/conexion-db.js";
     import { DataTypes } from "sequelize";
 
-    const Usuario = sq.define('usuario', {
+    const Usuario = sq.define('Usuario', {
         nombre: { 
             type: DataTypes.STRING,
             allowNull: false,
@@ -24,7 +24,7 @@
             allowNull: false,
         }
     }, {
-        tableName: "usuario",
+        tableName: "Usuario",
         timestamps: false,
     });
 

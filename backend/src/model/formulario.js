@@ -1,7 +1,7 @@
 import sq from "../config/conexion-db.js"
 import { DataTypes } from "sequelize"
 
-const formulario = sq.define('formulario' , {
+const formulario = sq.define('Formulario' , {
 
     nombre : {
         type : DataTypes.STRING,
@@ -26,7 +26,7 @@ const formulario = sq.define('formulario' , {
     }
 }, {
 
-    tableName : "formulario",
+    tableName : "Formulario",
     timestamps : false
 });
 
