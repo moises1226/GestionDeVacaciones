@@ -197,8 +197,8 @@ const Calendario = () => {
                     <li key={index} style={{ marginBottom: '10px' }}>
                       <div style={{ color: persona.color }}>
                         <strong>Nombre:</strong> {persona.nombre}<br />
-                        <strong>gmail:</strong> {persona.gmail}<br />
-                        <strong>fecha_inicio:</strong> {persona.fecha_inicio}<br />
+                        <strong>Gmail:</strong> {persona.gmail}<br />
+                        <strong>Fecha de inicio:</strong> {persona.fecha_inicio}<br />
                       </div>
                     </li>
                   ))}
