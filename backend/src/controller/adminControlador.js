@@ -30,7 +30,7 @@ export const crearAdminController = async (req, res) => {
      
         return res.status(200).json({
             mensaje: "Inicio de sesión exitoso",
-            permisos: resultadoAutenticacion.permisos //retorno del tipo de permiso 
+            permisos: nuevoAdmin.permisos //retorno del tipo de permiso 
         });
 
     } catch (error) {

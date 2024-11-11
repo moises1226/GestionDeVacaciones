@@ -4,12 +4,12 @@
   import Cargador from '../components/cargador.jsx'; 
   import api from '../service/api.js'; 
 
-  const Login = ({ setIsAuthenticated }) => {
+  const Login = ({ setEstaAutenticado , setTipoPermiso}) => {
     const [gmail, setGmail] = useState('');
     const [contrasenia, setContrasenia] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [permisos, setPermisos] = useState('');
     const navigate = useNavigate();
+
 
     const handleLogin = async (e) => {
       e.preventDefault();
@@ -19,16 +19,19 @@
         // Petición a la API para autenticar al usuario y administrador
         const response = await api.post('/acceso', { gmail, contrasenia });
 
-    
+        
         if (response.status === 200 ) {
 
           const { permisos } = response.data; 
-          setPermisos(permisos); //guardamos en estado permisos
+    
+          //agregacion del tipo de permiso en en el estado para el estado del navbar
+          setTipoPermiso(permisos);
           
           // Configura el estado de autenticación en el frontend
-          setIsAuthenticated(true);
+          setEstaAutenticado(true);
           // Redirige a la página principal
           navigate('/');
+         
         }
       } catch (error) {
       
@@ -37,6 +40,8 @@
       }
 
       setIsLoading(false);
+ 
+
     };
 
     return (

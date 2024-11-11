@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from "../assets/logoPagina.png";
 
-const NavBar = ({ tipoDeUsuario }) => {
+const NavBar = ({ TipoPermisos }) => {
   const enlaceBtn = "inline-block py-1 text-black hover:text-layout cursor-pointer mr-4";
   const enlaceActivo = "inline-block py-1 text-layout mr-4";
   const ubicacion = useLocation(); 
@@ -23,11 +23,11 @@ const NavBar = ({ tipoDeUsuario }) => {
           <NavLink to="/calendario" className={({ isActive }) => `${isActive ? enlaceActivo : enlaceBtn} ${esInicio ? 'text-white' : 'text-black'}`}>Calendario</NavLink>
 
           {/* Mostrar/ocultar enlace dependiendo del tipo de usuario */}
-          {tipoDeUsuario === "admin" && (
+          {TipoPermisos === "admin" && (
             <NavLink to="/validacion" className={({ isActive }) => `${isActive ? enlaceActivo : enlaceBtn} ${esInicio ? 'text-white' : 'text-black'}`}>Validación</NavLink>
           )}
 
-          {tipoDeUsuario === "usuario" && (
+          {TipoPermisos === "usuario" && (
             <NavLink to="/formularioVacaciones" className={({ isActive }) => `${isActive ? enlaceActivo : enlaceBtn} ${esInicio ? 'text-white' : 'text-black'}`}>Formulario Vacaciones</NavLink>
           )}
         </nav>

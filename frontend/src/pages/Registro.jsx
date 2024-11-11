@@ -119,7 +119,6 @@ const Registro = () => {
                 alert("Administrador creado exitosamente.");
           
             }
-    
             // Limpiar el formulario después del envío
             setAdminData({
                 nombre: '',
