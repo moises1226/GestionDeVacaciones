@@ -27,7 +27,7 @@
         }
       } catch (error) {
       
-        console.error('Error al iniciar sesión:', error);
+        console.error('Error al inicir sesion:', error.response?.data || error.message);
         alert('Correo o contraseña incorrectos');
       }
 
