@@ -24,7 +24,7 @@ CREATE TABLE Administrador (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     gmail VARCHAR(100) NOT NULL UNIQUE,
-    contrasenia VARCHAR(50) NOT NULL,
+    contrasenia VARCHAR(255) NOT NULL,
     permisos varchar(50) NOT NULL
 
 );
