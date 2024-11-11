@@ -8,6 +8,7 @@
     const [gmail, setGmail] = useState('');
     const [contrasenia, setContrasenia] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [permisos, setPermisos] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -20,6 +21,10 @@
 
     
         if (response.status === 200 ) {
+
+          const { permisos } = response.data; 
+          setPermisos(permisos); //guardamos en estado permisos
+          
           // Configura el estado de autenticación en el frontend
           setIsAuthenticated(true);
           // Redirige a la página principal

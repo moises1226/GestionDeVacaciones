@@ -19,7 +19,10 @@ export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
         if (!contraseniaValidaUS) {
             throw new Error("La contraseña del usuario es incorrecta.");
         }
-        return console.log("Autenticación de usuario exitosa");
+        return {
+            
+            permisos: usuarioExistente.permisos 
+        };  
     }
 
     // Verifica si es un administrador y compara la contraseña
@@ -28,7 +31,11 @@ export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
         if (!contraseniaValidaAD) {
             throw new Error("La contraseña del administrador es incorrecta.");
         }
-        return console.log("Autenticación de administrador exitosa");
+        return {
+            
+            permisos: adminExistente.permisos 
+        };  
+    
     }
 };
 

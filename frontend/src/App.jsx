@@ -11,53 +11,53 @@ import Validacion from "./pages/Validacion";
 import FormularioVacaciones from "./pages/formularioVacaciones.jsx";
 
 // Función de ruta protegida
-function ProtectedRoute({ isAuthenticated, children }) {
-  return isAuthenticated ? children : <Navigate to="/Login" />;
+function RutaProtegida({ estaAutenticado, children }) {
+  return estaAutenticado ? children : <Navigate to="/Login" />;
 }
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const location = useLocation();
+  const [estaAutenticado, setEstaAutenticado] = useState(false);
+  const ubicacion = useLocation();
 
-  const isAuthPage = location.pathname === "/Login" || location.pathname === "/Registro";
+  const esPaginaDeAutenticacion = ubicacion.pathname === "/Login" || ubicacion.pathname === "/Registro";
 
   return (
     <div >
       {/* Rutas de autenticación sin Layout */}
-      {isAuthPage ? (
+      {esPaginaDeAutenticacion ? (
         <Routes>
-          <Route path="/Login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/Registro" element={<Registro setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/Login" element={<Login setEstaAutenticado={setEstaAutenticado} />} />
+          <Route path="/Registro" element={<Registro setEstaAutenticado={setEstaAutenticado} />} />
           <Route path="/*" element={<Navigate to="/Login" />} /> {/* Redirige a login si no coincide con ninguna ruta */}
         </Routes>
       ) : (
-        // Rutas principale NavBar, y Footer
+        // Rutas principales: NavBar y Footer
         <>
           <NavBar />
           <Layout className="flex-grow">
             <Routes>
               {/* Ruta de inicio protegida */}
               <Route path="/" element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <RutaProtegida estaAutenticado={estaAutenticado}>
                   <Inicio />
-                </ProtectedRoute>
+                </RutaProtegida>
               } />
               
               {/* Rutas protegidas */}
               <Route path="/Calendario" element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <RutaProtegida estaAutenticado={estaAutenticado}>
                   <Calendario />
-                </ProtectedRoute>
+                </RutaProtegida>
               } />
               <Route path="/formularioVacaciones" element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <RutaProtegida estaAutenticado={estaAutenticado}>
                   <FormularioVacaciones />
-                </ProtectedRoute>
+                </RutaProtegida>
               } />
               <Route path="/Validacion" element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <RutaProtegida estaAutenticado={estaAutenticado}>
                   <Validacion />
-                </ProtectedRoute>
+                </RutaProtegida>
               } />
 
               {/* Ruta por defecto */}

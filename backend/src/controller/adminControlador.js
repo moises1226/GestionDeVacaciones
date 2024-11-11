@@ -28,7 +28,10 @@ export const crearAdminController = async (req, res) => {
         const nuevoAdmin = await crearAdminService(req.body);
 
      
-        return res.status(201).json(nuevoAdmin);
+        return res.status(200).json({
+            mensaje: "Inicio de sesión exitoso",
+            permisos: resultadoAutenticacion.permisos //retorno del tipo de permiso 
+        });
 
     } catch (error) {
         if (error instanceof z.ZodError) {
