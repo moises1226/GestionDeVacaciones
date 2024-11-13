@@ -29,8 +29,3 @@ CREATE TABLE Formulario (
 
 );
 
-CREATE TABLE Sesion (
-  session_id VARCHAR(255) NOT NULL PRIMARY KEY,
-  expires DATETIME NOT NULL,
-  data TEXT NOT NULL
-);

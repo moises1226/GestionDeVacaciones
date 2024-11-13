@@ -223,29 +223,45 @@ const Calendario = () => {
         {renderCalendario()}
 
         {mostrarVentana && (
-          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-6 rounded shadow-lg">
-              <h3 className="text-lg font-bold mb-2">Datos de las personas asignadas a esta fecha</h3>
-              {personasPorFecha.get(fechaSeleccionada.toDateString()) ? (
-                <ul>
-                  {personasPorFecha.get(fechaSeleccionada.toDateString()).map((persona, index) => (
-                    <li key={index} style={{ marginBottom: '10px' }}>
-                      <div style={{ color: persona.color }}>
-                        <strong>Nombre:</strong> {persona.nombre}<br />
-                        <strong>Gmail:</strong> {persona.gmail}<br />
-                        <strong>Fecha de inicio:</strong> {persona.fecha_inicio}<br />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No hay registros para este día.</p>
-              )}
+  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded shadow-lg">
+      <h3 className="text-lg font-bold mb-2">Datos de las personas asignadas a esta fecha</h3>
+      {personasPorFecha.get(fechaSeleccionada.toDateString()) ? (
+        <ul>
+          {personasPorFecha.get(fechaSeleccionada.toDateString()).map((persona, index) => {
+            const fechaInicio = new Date(persona.fecha_inicio); // Fecha de inicio de la persona
+            const diasDeVacaciones = calcularDiasDeVacaciones(persona.gmail); // Calculamos los días de vacaciones según la antigüedad
 
-              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={() => setMostrarVentana(false)}>Cerrar</button>
-            </div>
-          </div>
-        )}
+            // Calculamos la fecha final sumando los días de vacaciones a la fecha de inicio
+            const fechaFinal = new Date(fechaInicio);
+            fechaFinal.setDate(fechaInicio.getDate() + diasDeVacaciones); // Sumamos los días de vacaciones
+
+            // Formateamos las fechas a "día/mes/año"
+            const formatoFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const fechaInicioFormateada = fechaInicio.toLocaleDateString('es-ES', formatoFecha);
+            const fechaFinalFormateada = fechaFinal.toLocaleDateString('es-ES', formatoFecha);
+
+            return (
+              <li key={index} style={{ marginBottom: '10px' }}>
+                <div style={{ color: persona.color }}>
+                  <strong>Nombre:</strong> {persona.nombre}<br />
+                  <strong>Gmail:</strong> {persona.gmail}<br />
+                  <strong>Fecha de inicio:</strong> {fechaInicioFormateada}<br />
+                  <strong>Fecha final:</strong> {fechaFinalFormateada} {/* Mostramos la fecha final formateada */}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>No hay registros para este día.</p>
+      )}
+
+      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={() => setMostrarVentana(false)}>Cerrar</button>
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );
