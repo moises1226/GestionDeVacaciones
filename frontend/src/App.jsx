@@ -19,6 +19,7 @@ function App() {
   const [estaAutenticado, setEstaAutenticado] = useState(false);
   const ubicacion = useLocation();
   const [TipoPermisos, setTipoPermiso] = useState('');
+  
 
   const esPaginaDeAutenticacion = ubicacion.pathname === "/Login" || ubicacion.pathname === "/Registro";
 
@@ -27,7 +28,7 @@ function App() {
       {/* Rutas de autenticación sin Layout */}
       {esPaginaDeAutenticacion ? (
         <Routes>
-          <Route path="/Login" element={<Login setEstaAutenticado={setEstaAutenticado} setTipoPermiso={setTipoPermiso} />} />
+          <Route path="/Login" element={<Login setEstaAutenticado={setEstaAutenticado} setTipoPermiso={setTipoPermiso}  />} />
           <Route path="/Registro" element={<Registro setEstaAutenticado={setEstaAutenticado} />} />
           <Route path="/*" element={<Navigate to="/Login" />} /> {/* Redirige a login si no coincide con ninguna ruta */}
         </Routes>

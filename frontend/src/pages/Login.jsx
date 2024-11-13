@@ -4,7 +4,7 @@
   import Cargador from '../components/cargador.jsx'; 
   import api from '../service/api.js'; 
 
-  const Login = ({ setEstaAutenticado , setTipoPermiso}) => {
+  const Login = ({ setEstaAutenticado , setTipoPermiso }) => {
     const [gmail, setGmail] = useState('');
     const [contrasenia, setContrasenia] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -23,9 +23,11 @@
         if (response.status === 200 ) {
 
           const { permisos } = response.data; 
+
     
           //agregacion del tipo de permiso en en el estado para el estado del navbar
           setTipoPermiso(permisos);
+     
           
           // Configura el estado de autenticación en el frontend
           setEstaAutenticado(true);

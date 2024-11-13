@@ -11,7 +11,8 @@ export const iniciarSesionControlador = async (req, res) => {
 
         // Si la autenticación es exitosa, devuelve una respuesta exitosa con el tipo de permiso
         return res.status(200).json({
-            permisos: usuarioAutenticado.permisos // Retorna los permisos del usuario o administrador
+            permisos: usuarioAutenticado.permisos, // Retorna los permisos del usuario o administrador
+         
         });
 
     } catch (error) {

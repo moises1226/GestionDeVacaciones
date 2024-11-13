@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { crearFormulario } from '../service/formularioServicio.js';
+import { obtenerUsuarios } from '../service/usuarioServicio.js';
 
 const FormularioVacaciones = () => {
-  // Estado para almacenar los datos del formulario
-  const [DatosFormulario, setDatosFormulario] = useState({
+  const [datosFormulario, setDatosFormulario] = useState({
     nombre: '',
     apellido: '',
     dni: '',
@@ -11,26 +11,29 @@ const FormularioVacaciones = () => {
     fecha_inicio: '',
   });
 
-  
   const [error, setError] = useState('');
 
-  // Envío del formulario
-  const handleSubmit = async (e) => {
+  const enviarFormulario = async (e) => {
     e.preventDefault();
 
-    // Validación para asegurar que todos los campos requeridos están completos
-    if (!DatosFormulario.nombre || !DatosFormulario.apellido || !DatosFormulario.gmail || !DatosFormulario.fecha_inicio) {
+    if (!datosFormulario.nombre || !datosFormulario.apellido || !datosFormulario.gmail || !datosFormulario.fecha_inicio) {
       alert("Por favor, complete todos los campos requeridos.");
       return;
-    } 
+    }
 
+    const usuarios = await obtenerUsuarios();
+    const usuarioEncontrado = usuarios.find(usuario => usuario.gmail === datosFormulario.gmail);
+
+    if (!usuarioEncontrado) {
+      setError('El usuario no está registrado.');
+      return;
+    }
 
     try {
-      await crearFormulario(DatosFormulario);
-      setError(false);
+      await crearFormulario(datosFormulario);
+      setError('');
       alert('Formulario enviado con éxito');
 
-      // Reiniciar el formulario
       setDatosFormulario({
         nombre: '',
         apellido: '',
@@ -38,31 +41,27 @@ const FormularioVacaciones = () => {
         gmail: '',
         fecha_inicio: '',
       });
-      
+
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       setError('Error al enviar el formulario. Intente nuevamente.');
-    } 
+    }
   };
 
-
-  const handleChange = (e) => {
+  const manejarCambio = (e) => {
     const { name, value } = e.target;
-
-    // Si el campo es "dni", convertimos el valor a un número entero
-    const newValue = name === "dni" ? (isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)) : value;
-
+    const nuevoValor = name === "dni" ? (isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)) : value;
 
     setDatosFormulario((prev) => ({
       ...prev,
-      [name]: newValue,
+      [name]: nuevoValor,
     }));
   };
 
   return (
     <div className="flex justify-center p-20 bg-blue-100">
       <div className="border border-blue-900 rounded-lg shadow-lg p-6 w-full max-w-md bg-white">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={enviarFormulario}>
           <div className="flex items-center justify-center">
             <h2 className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-900">
               Formulario
@@ -78,8 +77,8 @@ const FormularioVacaciones = () => {
             <input 
               type="text" 
               name="nombre" 
-              value={DatosFormulario.nombre} 
-              onChange={handleChange} 
+              value={datosFormulario.nombre} 
+              onChange={manejarCambio} 
               className="block w-full py-3 text-gray-800 bg-gray-200 border border-blue-300 rounded-lg px-11 focus:border-blue-900 focus:ring focus:ring-blue-900 focus:ring-opacity-50" 
               placeholder="Nombre Completo"
             />
@@ -94,8 +93,8 @@ const FormularioVacaciones = () => {
             <input 
               type="text" 
               name="apellido" 
-              value={DatosFormulario.apellido} 
-              onChange={handleChange} 
+              value={datosFormulario.apellido} 
+              onChange={manejarCambio} 
               className="block w-full py-3 text-gray-800 bg-gray-200 border border-blue-300 rounded-lg px-11 focus:border-blue-900 focus:ring focus:ring-blue-900 focus:ring-opacity-50" 
               placeholder="Apellido Completo"
             />
@@ -110,8 +109,8 @@ const FormularioVacaciones = () => {
             <input 
               type="text" 
               name="dni" 
-              value={DatosFormulario.dni} 
-              onChange={handleChange} 
+              value={datosFormulario.dni} 
+              onChange={manejarCambio} 
               className="block w-full py-3 text-gray-800 bg-gray-200 border border-blue-300 rounded-lg px-11 focus:border-blue-900 focus:ring focus:ring-blue-900 focus:ring-opacity-50" 
               placeholder="Ingrese su D.N.I"
             />
@@ -126,8 +125,8 @@ const FormularioVacaciones = () => {
             <input 
               type="email" 
               name="gmail" 
-              value={DatosFormulario.gmail} 
-              onChange={handleChange} 
+              value={datosFormulario.gmail} 
+              onChange={manejarCambio} 
               className="block w-full py-3 text-gray-800 bg-gray-200 border border-blue-300 rounded-lg px-11 focus:border-blue-900 focus:ring focus:ring-blue-900 focus:ring-opacity-50" 
               placeholder="Ingresar Gmail"
             />
@@ -142,14 +141,14 @@ const FormularioVacaciones = () => {
             <input 
               type="date" 
               name="fecha_inicio" 
-              value={DatosFormulario.fecha_inicio} 
-              onChange={handleChange} 
+              value={datosFormulario.fecha_inicio} 
+              onChange={manejarCambio} 
               className="block w-full px-10 py-3 text-gray-800 bg-gray-200 border border-blue-300 rounded-lg focus:border-blue-900 focus:ring focus:ring-blue-900 focus:ring-opacity-50" 
               placeholder="Fecha de Inicio"
             />
           </div>
   
-          {error && <div className="text-red-500">{error}</div>} {/* Mensaje de error */}
+          {error && <div className="text-red-500 mt-2">{error}</div>}
           
           <button 
             type="submit" 
@@ -161,8 +160,6 @@ const FormularioVacaciones = () => {
       </div>
     </div>
   );
-  
-  
 };
 
 export default FormularioVacaciones;

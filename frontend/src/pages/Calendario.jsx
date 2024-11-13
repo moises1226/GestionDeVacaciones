@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
-import { obtenerRegistros } from '../service/formularioServicio'; // Asegúrate de importar la función de la API
+import { obtenerRegistros } from '../service/formularioServicio.js';
+import { obtenerUsuarios } from '../service/usuarioServicio.js';
 
+// Función para obtener el color aleatorio
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF';
   let color = '#';
@@ -11,19 +13,33 @@ const getRandomColor = () => {
   return color;
 };
 
+// Función para determinar los días de vacaciones según la antigüedad
+const vacacionesPorAntiguedad = (antiguedad) => {
+
+  if (antiguedad <= 5) {
+    return 14; 
+  } else if (antiguedad > 5 && antiguedad <= 10) {
+    return 21; 
+  } else if (antiguedad >= 20) {
+    return 28; 
+  }
+  return 0; 
+};
+
 const Calendario = () => {
   const [fechaActual, setFechaActual] = useState(new Date());
   const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
   const [mostrarVentana, setMostrarVentana] = useState(false);
   const [personasPorFecha, setPersonasPorFecha] = useState(new Map());
   const [diasMarcados, setDiasMarcados] = useState(new Map());
-  const [personas, setPersonas] = useState([]); // Para almacenar las personas
-  const [searchTerm, setSearchTerm] = useState(""); // Para filtrar por nombre
+  const [personas, setPersonas] = useState([]); 
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [usuarios, setUsuarios] = useState([]); 
 
-  // Función para cargar los registros de la API y asignarlos a las fechas
   useEffect(() => {
     const cargarRegistros = async () => {
       try {
+        const usuarioData = await obtenerUsuarios();
         const registros = await obtenerRegistros();
         const personasMap = new Map();
         const listaPersonas = [];
@@ -32,7 +48,6 @@ const Calendario = () => {
           const fechaInicio = new Date(persona.fecha_inicio);
           const fechaString = fechaInicio.toDateString();
 
-          // Almacenar las personas
           listaPersonas.push(persona);
 
           if (!personasMap.has(fechaString)) {
@@ -40,10 +55,11 @@ const Calendario = () => {
           }
           personasMap.get(fechaString).push({
             ...persona,
-            color: getRandomColor(), // Asignar un color aleatorio a cada persona
+            color: getRandomColor(),
           });
         });
 
+        setUsuarios(usuarioData);
         setPersonas(listaPersonas);
         setPersonasPorFecha(personasMap);
       } catch (error) {
@@ -52,21 +68,37 @@ const Calendario = () => {
     };
 
     cargarRegistros();
-  }, []); // Esto se ejecutará solo una vez cuando el componente se monte
+  }, []); 
 
+  // Función para calcular los días de vacaciones según la antigüedad
+  const calcularDiasDeVacaciones = (gmail) => {
+    const usuario = usuarios.find((usuario) => usuario.gmail === gmail);
+    return usuario ? vacacionesPorAntiguedad(usuario.antiguedad) : 0;
+  };
+
+  // Marcar los días en el calendario según el rango de vacaciones
+  const marcarDias = (fecha, persona) => {
+    const diasDeVacaciones = calcularDiasDeVacaciones(persona.gmail);
+    const nuevosDiasMarcados = new Map(diasMarcados);
+    const color = persona.color;
+    const dias = [];
+
+    // Agregregacion de los días del rango de vacaciones al calendario
+    for (let i = 0; i < diasDeVacaciones; i++) {
+      const nuevaFecha = new Date(fecha);
+      nuevaFecha.setDate(fecha.getDate() + i);
+      dias.push(nuevaFecha.toDateString());
+
+      nuevosDiasMarcados.set(nuevaFecha.toDateString(), color);
+    }
+
+    setDiasMarcados(nuevosDiasMarcados);
+  };
+
+  // Función para manejar el clic en la fecha
   const manejarClickFecha = (fecha) => {
     setFechaSeleccionada(fecha);
     setMostrarVentana(true);
-  };
-
-  const marcarDias = (fecha, color) => {
-    const nuevosDiasMarcados = new Map();
-    for (let i = 0; i < 7; i++) {
-      const nuevaFecha = new Date(fecha);
-      nuevaFecha.setDate(fecha.getDate() + i);
-      nuevosDiasMarcados.set(nuevaFecha.toDateString(), color);
-    }
-    setDiasMarcados(nuevosDiasMarcados);
   };
 
   const renderCalendario = () => {
@@ -82,7 +114,9 @@ const Calendario = () => {
       const colorMarcado = diasMarcados.get(fecha.toDateString());
 
       return (
-        <div key={i} className={`border p-4 text-center cursor-pointer transition duration-300 ${estaEnElMesActual ? 'hover:bg-gray-200' : 'opacity-50'} ${colorMarcado ? 'bg-opacity-30' : ''}`}
+        <div
+          key={i}
+          className={`border p-4 text-center cursor-pointer transition duration-300 ${estaEnElMesActual ? 'hover:bg-gray-200' : 'opacity-50'} ${colorMarcado ? 'bg-opacity-30' : ''}`}
           style={colorMarcado ? { backgroundColor: colorMarcado } : {}}
           onClick={() => {
             if (estaEnElMesActual) {
@@ -95,18 +129,21 @@ const Calendario = () => {
               <div>{fecha.getDate()}</div>
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
                 {personasDelDia && personasDelDia.map((persona, index) => (
-                  <div key={index} style={{
-                    backgroundColor: persona.color,
-                    borderRadius: '50%',
-                    width: '15px',
-                    height: '15px',
-                    margin: '0 2px',
-                    cursor: 'pointer',
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation(); // Evitar que se dispare el evento del div del día
-                    marcarDias(fecha, persona.color);
-                  }} />
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: persona.color,
+                      borderRadius: '50%',
+                      width: '15px',
+                      height: '15px',
+                      margin: '0 2px',
+                      cursor: 'pointer',
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      marcarDias(fecha, persona);
+                    }}
+                  />
                 ))}
               </div>
             </>
@@ -143,39 +180,37 @@ const Calendario = () => {
 
   return (
     <div className="flex">
-      {/* Panel izquierdo */}
+    
       <div className="w-1/5" style={{ backgroundColor: '#B0C4DE' }} p-4>
-      <h3 className="mt-4 text-xl font-semibold text-center text-white">Información sobre personas</h3>
-  
-  {/* Input de búsqueda */}
-  <div className="flex justify-center items-center mb-4"> {/* Contenedor para centrar */}
-    <input
-      type="text"
-      value={searchTerm}
-      onChange={manejarBusqueda}
-      placeholder="Buscar persona..."
-      className="p-2 mt-4 border rounded-lg " // Borde, radio en los 4 lados, padding y ancho
-    /> 
-  </div>
+        <h3 className="mt-4 text-xl font-semibold text-center text-white">Información sobre personas</h3>
 
-  <ul className="space-y-2">
-    {personasFiltradas.map((persona) => {
-      const fechaInicio = new Date(persona.fecha_inicio);
-      return (
-        <li
-          key={persona.id}
-          className=" text-orange-400  cursor-pointer text-center p-2 hover:bg-gray-200 transition-colors"
-          onClick={() => setFechaActual(new Date(fechaInicio))}
-        >
-          <p className="text-lg">{persona.nombre} {persona.apellido}</p>
-        </li>
-      );
-    })}
-  </ul>
-</div>
+        <div className="flex justify-center items-center mb-4"> 
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={manejarBusqueda}
+            placeholder="Buscar persona..."
+            className="p-2 mt-4 border rounded-lg "
+          /> 
+        </div>
 
+        <ul className="space-y-2">
+          {personasFiltradas.map((persona) => {
+            const fechaInicio = new Date(persona.fecha_inicio);
+            return (
+              <li
+                key={persona.id}
+                className="text-orange-400 cursor-pointer text-center p-2 hover:bg-gray-200 transition-colors"
+                onClick={() => setFechaActual(new Date(fechaInicio))}
+              >
+                <p className="text-lg">{persona.nombre} {persona.apellido}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-      {/* Calendario y ventana */}
+      {/* Calendario */}
       <div className="flex-1 p-4 mb-16 mt-10">
         <div className="flex justify-between items-center mb-4">
           <button onClick={() => cambiarMes(-1)} className="text-black-700"><FaArrowAltCircleLeft /></button>

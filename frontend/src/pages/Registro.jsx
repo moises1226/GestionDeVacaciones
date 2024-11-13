@@ -29,7 +29,7 @@ const Registro = () => {
         const { name, value } = e.target;
         setUserData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: value,  
         }));
     };
     

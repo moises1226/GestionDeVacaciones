@@ -20,6 +20,7 @@ export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
         if (contraseniaValidaUS) {
             return {
                 permisos: usuarioExistente.permisos,
+               
             };
         } else {
             // Si la contraseña no es válida para el usuario, entonces verificamos si es un administrador
@@ -28,6 +29,7 @@ export const autenticarUsuarioServicio = async (gmail, contrasenia) => {
                 if (contraseniaValidaAD) {
                     return {
                         permisos: adminExistente.permisos,
+                       
                     };
                 } else {
                     throw new Error("La contraseña del administrador es incorrecta.");
