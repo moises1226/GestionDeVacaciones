@@ -15,25 +15,45 @@ const FormularioVacaciones = () => {
 
   const enviarFormulario = async (e) => {
     e.preventDefault();
-
+  
+    // Validación de campos requeridos
     if (!datosFormulario.nombre || !datosFormulario.apellido || !datosFormulario.gmail || !datosFormulario.fecha_inicio) {
       alert("Por favor, complete todos los campos requeridos.");
       return;
     }
-
+  
+    // Asegurarse de que el DNI sea un número válido
+    const dni = parseInt(datosFormulario.dni, 10);
+    if (isNaN(dni)) {
+      setError('El DNI debe ser un número válido.');
+      return;
+    }
+  
+    // Convertir fecha_inicio a un objeto Date
+    const fechaInicio = new Date(datosFormulario.fecha_inicio);
+    if (isNaN(fechaInicio.getTime())) {
+      setError('La fecha de inicio no es válida.');
+      return;
+    }
+  
+    // Actualizar los datosFormulario con el DNI convertido y la fecha_inicio convertida
+    const datosConFechaValida = { ...datosFormulario, dni, fecha_inicio: fechaInicio };
+  
+    // Verificar si el usuario está registrado
     const usuarios = await obtenerUsuarios();
     const usuarioEncontrado = usuarios.find(usuario => usuario.gmail === datosFormulario.gmail);
-
+  
     if (!usuarioEncontrado) {
       setError('El usuario no está registrado.');
       return;
     }
-
+  
     try {
-      await crearFormulario(datosFormulario);
+      await crearFormulario(datosConFechaValida);  // Enviar los datos con la fecha convertida
       setError('');
       alert('Formulario enviado con éxito');
-
+  
+      // Resetear los valores del formulario
       setDatosFormulario({
         nombre: '',
         apellido: '',
@@ -41,13 +61,12 @@ const FormularioVacaciones = () => {
         gmail: '',
         fecha_inicio: '',
       });
-
+  
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       setError('Error al enviar el formulario. Intente nuevamente.');
     }
   };
-
   const manejarCambio = (e) => {
     const { name, value } = e.target;
     const nuevoValor = name === "dni" ? (isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)) : value;
